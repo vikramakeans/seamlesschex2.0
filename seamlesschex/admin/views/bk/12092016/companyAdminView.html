@@ -1,9 +1,0 @@
-<button class="btn btn-primary" ng-click="user.backToSA()">Back to admin!</button>
-<div class="col-sm-6 col-sm-offset-3" ng-if="authenticated">
-		<h5 >Welcome, {{currentUser.name}}</h5>
-		<h3>Comapny Admin View</h3>
-		<div class="alert alert-danger" ng-if="user.error">
-			<strong>There was an error: </strong> {{user.error.error}}
-			<br>Please go back and login again
-		</div>
-</div>
