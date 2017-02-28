@@ -1,0 +1,113 @@
+<md-dialog aria-label="Recurring Payment Settings">
+  <form ng-cloak>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        
+    <!-- Main content -->
+    <section class="recurring-setting">
+        <div class="row" ng-app="authApp">
+		  <div class="">
+			<div class="box box-primary" style="margin-bottom: 0;">
+				<div class="box-header with-border">
+				  <h3 class="box-title">Recurring Payment Settings</h3>
+				</div>
+					<!-- /.box-header -->
+				<div class="box-header">
+				   <p class="alert alert-success" ng-if="checkSuccess"><strong>Success:</strong> {{checkSuccessText}}</p>
+				   <p class="alert alert-danger" ng-if="checkError"><strong>Error:</strong> {{checkErrorText}}</p>
+
+				 </div>
+				<div class="box-body table-responsive no-padding" ng-controller="CheckController as check" >
+				  <form role="form" class="ng-pristine ng-valid" >
+					<div class="box-body enter-Check">
+					   <div class="form-group col-sm-6 col-md-3">
+						<div class="input-group">
+						  <div class="input-group-addon">
+							<label for="inputEmail3">Runs Every:</label>
+						  </div>
+
+						     <select class="form-control"  ng-model="runs_every" ng-options="opt as opt.name for opt in typeOptions "  ng-change="recurrentOptionChange()"></select>
+						      <div ng-show="error_message_type">  
+									{{error_message_type}}
+							</div>
+						</div>
+					  </div>
+					     <!-- month -->
+					   <div ng-show="isMonthEnable" class="form-group col-sm-6 col-md-3">
+						<div class="input-group">
+						  <div class="input-group-addon">
+							<label for="inputEmail3">Day:</label>
+						  </div>
+						     <select class="form-control"  ng-options="date as date.name for date in monthdate " ng-model="day" ng-change="recurrentOptionChange()"></select>
+						</div>
+					  </div>
+					  <!-- ends -->
+					  <!-- week days -->
+					   <div ng-show="isWeekEnable" class="form-group col-sm-6 col-md-3">
+						<div class="input-group">
+						  <div class="input-group-addon">
+							<label for="inputEmail3">Week days:</label>
+						  </div>
+						     <select class="form-control"  ng-options="weekdys as weekdys.name for weekdys in weekdays " ng-model="week_days" ng-change="recurrentOptionChange()"></select>
+						</div>
+					  </div>
+					  <!-- week ends -->
+					  <!-- days -->
+					  <div  ng-show="isDayEnable" class="form-group col-sm-6 col-md-3">
+						<div class="input-group">
+						  <div class="input-group-addon">
+							<label for="inputEmail3">Time of Day:</label>
+						  </div>
+							<input ui-timepicker="options" class="form-control"  ng-model="time_of_day">
+						</div>
+					  </div> 
+					  <!-- ends -->
+					  
+					  <!-- month -->
+					  <div  ng-show="isTwoWeeksEnable">
+						<div class="col-sm-6 col-md-3 form-group">
+	                        <input id="" class="form-control" type="text" ng-model="from_date" datetime-picker="" date-format="MM/dd/yyyy" placeholder="Date" date-only="">
+	                        <i class="fa fa-calendar-check-o"></i>
+	                    </div>
+					  </div>
+					   <!--  ends-->
+					
+					  <div class="form-group col-sm-6 col-md-3">
+						<div class="input-group">
+						  <div class="input-group-addon">
+							<label for="inputEmail3">How many Times:</label>
+						  </div>
+						   <input type="text"  placeholder="" class="form-control" ng-model="how_many_times">
+						</div>
+						  <!-- /.input group -->
+					  </div>  
+
+					</div> 
+								<!-- /.box-body -->
+					<div class="box-footer">
+					  <div class="row">
+						<div class="text-right col-sm-12">
+						  <button class="btn btn-default" type="submit" ng-click="cancelRecurrent()">Cancel</button>
+						  <button class="btn btn-primary" type="submit" ng-click="saveRecurrent('hello')" ng-controller="CheckController as check">Save</button>
+
+						</div>
+					  </div>
+					</div>  
+				</form>
+
+			 </div>
+				<!-- /.box -->
+		  </div>
+	    </div>
+			<!-- /.box-body -->
+        
+        <!-- /.box-footer-->
+	  </div>
+        <!-- /.row-->
+
+	</section>
+  </div>
+</md-dialog-content>
+
+</form>
+</md-dialog>

@@ -1,0 +1,106 @@
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+
+
+  <div class="well">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Make A Payment To: &nbsp; {{check.companyadmin.name}}
+      </h1>
+      <!--<ol class="breadcrumb">
+        <li class="active">payauth</li>
+      </ol>-->
+	</section>
+
+    <!-- Main content -->
+    <section class="content">
+      
+        <div class="row">
+			<div class="col-xs-12">
+			  <div class="box">
+				<div class="box-header">
+				  <h3 class="box-title"></h3>
+				 </div>
+				 <form role="form" class="ng-pristine ng-valid">
+				 
+					<div class="box-body Pay-Auth enter-Check">
+                    	<div class="form-group col-sm-4 col-md-4">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<label for="inputPay13">Email:</label>
+								</div>
+                                <input placeholder="Enter your email address" class="form-control" ng-model="payauth.email" type="text">
+							</div>
+								<!-- /.input group -->
+						</div>
+                        <div class="form-group col-sm-3 col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <label for="inputPay13">Memo :</label>
+                                </div>
+                                <input type="text"  placeholder="Enter Description" class="form-control" ng-model="payauth.memo" />
+                            </div>
+                        </div>
+                       
+                        <div class="form-group col-sm-3 col-md-3">
+                             <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa  fa-dollar"></i>
+                                    <label>Amount:</label>
+                                </div>
+                                <input type="text" placeholder="Amount" class="form-control" ng-model="payauth.amount">
+                            </div>
+                        </div>
+                        <div class=" col-sm-2 col-md-2">
+                            <button class="btn btn-primary" type="submit" ng-click="payCheck()">PAY</button>
+                        </div>
+					</div>
+                    	 <!-- /.box-body -->
+                 </form>
+                    <div class="check-wrapper text-center">
+                    	<div class="inner-check-wrapper center-block">
+                            	<div class="CompanyNameDiv">
+                                    <input type="text" class="companyname" disabled="disabled" value="{{check.companyadmin.name}}">
+                                    
+								</div>
+                                <div class="amountInWords">
+                                    {{amountWords}} and 0/100
+                                </div>
+                                <div class="EnterCheckDateDiv">
+                                    {{date | date:'MM/dd/yyyy'}}
+                                </div>
+                               	<div class="MemoNameDiv2">
+                                    <input type="text" class="memo-name2" placeholder="Memo 1:" disabled="disabled" value="{{payauth.memo}}">
+                                </div>
+                                <div class="CheckNumberDiv">
+                                    <input type="text" class="check-number" placeholder="" disabled="disabled" value="">
+								</div>
+                                <div class="CheckAmountDiv">
+                                    <input type="text" class="check-amount" placeholder="Amount :" disabled="disabled" value="{{payauth.amount}}">
+								</div>
+                                <div class="RoutingDiv">
+                                    <input type="text" class="check-routing" placeholder="" disabled="disabled" value="">
+								</div>
+                                <div class="CheckingAccountDiv">
+                                    <input type="text" class="checking-account" placeholder="" disabled="disabled" value="">
+								</div>
+                                <div class="ConfirmAccountDiv">
+                                    <input type="text" class="confirm-account" placeholder="" disabled="disabled" value="">
+								</div>
+                        </div>
+                    </div>
+			  </div>
+			  <!-- /.box -->
+			</div>
+		  </div>
+        <!-- /.box-body -->
+    </section>
+    
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

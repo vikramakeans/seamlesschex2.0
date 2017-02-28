@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="SeamlessChex">
+		<link rel="icon" type="image/png" href="favicon.ico">
+		
+		<link href="assets/less/styles.less" rel="stylesheet/less" media="all"> 
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+		<link href='assets/demo/variations/default.css' rel='stylesheet' type='text/css' media='all' id='styleswitcher'> 
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" href="assets/css/ie8.css">
+      <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+      <script type="text/javascript" src="assets/plugins/charts-flot/excanvas.min.js"></script>
+      <script type='text/javascript' src='assets/plugins/misc/placeholdr.js'></script>
+    <![endif]-->
+
+    <!--[if IE 9]>
+      <script type="text/javascript" src="assets/plugins/misc/media.match.min.js"></script>
+    <![endif]-->
+	<!-- build:css assets/css/vendor.css -->
+	
+    <!-- bower:css -->
+     <!--<link rel="stylesheet" href="bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.css" />
+   <link rel="stylesheet" href="bower_components/angular-toggle-switch/angular-toggle-switch.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
+    <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
+    <link rel="stylesheet" href="bower_components/select2/select2.css" />
+    <link rel="stylesheet" href="bower_components/jScrollPane/style/jquery.jscrollpane.css" />
+    <link rel="stylesheet" href="bower_components/pnotify/dist/pnotify.brighttheme.css" />
+    <link rel="stylesheet" href="bower_components/pnotify/dist/pnotify.buttons.css" />
+    <link rel="stylesheet" href="bower_components/pnotify/dist/pnotify.css" />
+    <link rel="stylesheet" href="bower_components/pnotify/dist/pnotify.history.css" />
+    <link rel="stylesheet" href="bower_components/pnotify/dist/pnotify.mobile.css" />-->
+    <!-- endbower -->
+    <!--<link rel='stylesheet' type='text/css' href='assets/fonts/glyphicons/css/glyphicons.min.css' /> 
+    <link rel='stylesheet' type='text/css' href='assets/plugins/icheck/all.css' /> 
+    <link rel='stylesheet' type='text/css' href='assets/plugins/form-multiselect/css/multi-select.css' /> 
+    <link rel='stylesheet' type='text/css' href='assets/plugins/form-fseditor/fseditor.css' /> 
+    <link rel='stylesheet' type='text/css' href='assets/plugins/form-tokenfield/bootstrap-tokenfield.css' /> 
+    <link rel='stylesheet' type='text/css' href='assets/plugins/datepaginator/bootstrap-datepaginator.css' /> 
+    <link rel='stylesheet' type='text/css' href='assets/plugins/jquery-fileupload/css/jquery.fileupload-ui.css' /> 
+    <link rel='stylesheet' type='text/css' href='assets/plugins/bootstro.js/bootstro.min.css' /> 
+    <link rel='stylesheet' type='text/css' href='assets/plugins/progress-skylo/skylo.css' /> 
+    <link rel='stylesheet' type='text/css' href='assets/plugins/jcrop/css/jquery.Jcrop.min.css' />
+
+
+    <link rel='stylesheet' type='text/css' href='assets/plugins/form-daterangepicker/daterangepicker.css' /> 
+    <link rel='stylesheet' type='text/css' href='assets/plugins/form-markdown/css/bootstrap-markdown.min.css' /> 
+    <link rel='stylesheet' type='text/css' href='assets/plugins/codeprettifier/prettify.css' />
+    <link rel='stylesheet' type='text/css' href='assets/plugins/form-select2/select2.css' />
+    <link rel='stylesheet' type='text/css' href='assets/plugins/fullcalendar/fullcalendar.css' />-->
+    <!-- endbuild -->
+	
+	<!-- build:css({.tmp,app}) assets/css/main.css -->
+      <link rel="stylesheet" href="assets/css/main.css">
+      <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- endbuild -->
+        <title>SeamlessChex</title>
+		
+				
+        <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="css/seamlesschex.style.css">
+		<!-- build:css({.tmp,app}) assets/css/main.css -->
+      <link rel="stylesheet" href="assets/css/main.css">
+      <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- endbuild -->
+
+    <!-- prochtml:remove:dist -->
+    <script type="text/javascript">less = {}; less.env = 'development';</script>
+    <script type="text/javascript" src="assets/plugins/misc/less.js"></script>
+    <!-- /prochtml -->
+    </head>
+    
+    <body ng-app="authApp" >
+		
+				<!-- Header Start-->
+				
+				<div ng-include="'views/common/header.html'"></div>
+				
+				<!-- Header End-->
+				
+				<div id="page-container" class="clearfix">
+					
+					<!-- Left Sidebar Start-->
+					
+					<div ng-include="'views/common/sidebar-left.html'" ></div>
+					
+					<!-- Left Sidebar End-->
+					
+					<!-- Right Sidebar Start-->
+					<div id="page-content" class="clearfix" fit-height>
+					<!--<div id="wrap" ng-view="" class="mainview-animation"></div> -->
+						<div id="wrap" class="mainview-animation">
+							<div ui-view></div>
+						</div> 
+					</div> 
+					
+				</div> 
+				
+				<!-- Right Sidebar End-->
+				
+					
+				<!-- Footer Start-->
+				
+				<div ng-include="'views/common/footer.html'"></div>
+				
+				<!-- Footer End-->
+			
+    </body>
+	<!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+    <!-- Application Dependencies -->
+    <script src="app/lib/angular/angular.min.js"></script>
+    <script src="app/lib/angular-ui-router/build/angular-ui-router.js"></script>
+    <script src="app/lib/satellizer/satellizer.js"></script>
+    <script src="app/lib/angular-animate.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+    <!-- loadingbar -->
+    <script src="app/lib/loading-bar.js"></script>
+    <link href='css/loading-bar.css' rel='stylesheet' />
+	<!--<script src="app/lib/angular/angular-ui-utils.min.js"></script>-->
+	<script src="app/lib/phonenumberModule.js"></script>
+	<script src="app/lib/angular/angular.payments.js"></script>
+
+    <!-- Application Scripts -->
+	<script src="app/shared/Services.js"></script>
+	<script src="app/pages/Controllers.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/authController.js"></script>
+    <script src="app/controllers/userController.js"></script>
+    <script src="app/controllers/registerController.js"></script>
+	
+	
+	
+	<!--<script src="app/main.js"></script>
+	<script data-main="app/boot.js" src="app/lib/require.js"></script>-->
+	
+
+</html>

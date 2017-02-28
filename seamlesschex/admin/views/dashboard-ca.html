@@ -1,0 +1,326 @@
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+
+<!-- Full body content Start-->
+
+<!-- Right Sidebar Start-->
+
+  <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+		<h1>
+			Dashboard
+			<small></small>
+		</h1>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li class="active">Dashboard</li>
+		</ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+		<div class="row">
+			<div class="col-lg-3 col-xs-6">
+		   		<!-- small box -->
+				<div class="small-box bg-green">
+					<div class="inner">
+				  		<h3><i class="fa fa-dollar"></i> 150</h3>
+				  		<p>Total Volume</p>
+					</div>
+					<div class="icon">
+				  		<i class="ion"></i>
+					</div>
+					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+			<!-- ./col -->
+			<div class="col-lg-3 col-xs-6">
+				<!-- small box -->
+				<div class="small-box bg-teal">
+					<div class="inner">
+				  		<h3><i class="fa fa-dollar"></i> 53</h3>
+				  		<p>Total Last Batch</p>
+					</div>
+					<div class="icon">
+				  		<i class="ion"></i>
+					</div>
+					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+        	<!-- ./col -->
+			<div class="col-lg-3 col-xs-6">
+				<!-- small box -->
+				<div class="small-box bg-light-blue">
+					<div class="inner">
+						<h3><i class="fa fa-dollar"></i> 44</h3>
+						<p>Total Next Batch</p>
+					</div>
+					<div class="icon">
+						<i class="ion"></i>
+					</div>
+					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+			<!-- ./col -->
+			<div class="col-lg-3 col-xs-6">
+				<!-- small box -->
+				<div class="small-box bg-purple">
+					<div class="inner">
+						<h3><i class="fa fa-dollar"></i> 65</h3>
+						<p>Total Sent</p>
+					</div>
+					<div class="icon">
+						<i class="ion"></i>
+					</div>
+					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+			<!-- ./col -->
+      	</div>
+      	<!-- /.row -->
+		<!-- Main row -->
+		<div class="row">
+       		<section class="col-lg-12 connectedSortable">
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<div><label>RECENT ACTIVITY</label>
+							<span ng-click="downloadMultipleInvoice(invoice)" class="btn" title="Export CSV"><i class="fa fa-cloud-download"></i></span>
+						</div>
+						<div ng-show="loader.loading" class="btn btn-success">Downloading...
+							<i class="fa fa-spinner fa-spin"></i>
+						</div>
+						<div class="box-tools">
+							<div class="input-group input-group-sm" style="width: 150px;">
+								<input type="text" ng-model="searchText.$" class="form-control pull-right" placeholder="Search">
+							</div>
+						</div>
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body table-responsive no-padding">
+						<div style="visibility: hidden">
+							<div class="md-dialog-container" id="myStaticDialog">
+							<md-dialog>This is a pre-rendered dialog.</md-dialog>
+							</div>
+						</div>
+				  		<table class="table table-hover table-striped th-color">
+							<tr>	
+							  	<th>NUMBER</th>
+							  	<th>TYPE</th>
+							  	<th>ADDRESS</th>
+							  	<th width="120">AMOUNT</th>
+							  	<th width="110">STATUS</th>
+							  	<th>Name</th>
+								<th>Date</th>
+					  			<th>Description:</th>
+					  			<th>Received Date</th>
+						  		<th></th>
+							</tr>
+							<tr>
+								<td>1025</td>
+								<td>Invoice</td>
+								<td>ealbert@gmail.com</td>
+								<td>$150</td>
+								<td>
+									<span class="label label-success">
+										<span>Unpaid</span>
+									</span>
+								</td>
+								<td>Jom Robert</td>
+								<td>30/01/2017</td>
+								<td>tester</td>
+								<td>02/01/2017</td>
+								<td><a><span class="delete md-primary md-raised" ng-click="deleteScxAdmin($event, admin.sc_token)"><i class="fa fa-close"><md-tooltip md-direction="top">Delete</md-tooltip></i></span></a></td>
+
+						  	</tr>
+							
+							<tr>
+								<td>1025</td>
+								<td>Invoice</td>
+								<td>ealbert@gmail.com</td>
+								<td>$150</td>
+								<td>
+									<span class="label label-success">
+										<span>Unpaid</span>
+									</span>
+								</td>
+								<td>Jom Robert</td>
+								<td>30/01/2017</td>
+								<td>tester</td>
+								<td>02/01/2017</td>
+								<td><a><span class="delete md-primary md-raised" ng-click="deleteScxAdmin($event, admin.sc_token)"><i class="fa fa-close"><md-tooltip md-direction="top">Delete</md-tooltip></i></span></a></td>
+
+						  	</tr>
+							<tr>
+								<td>1025</td>
+								<td>Invoice</td>
+								<td>ealbert@gmail.com</td>
+								<td>$150</td>
+								<td>
+									<span class="label label-success">
+										<span>Unpaid</span>
+									</span>
+								</td>
+								<td>Jom Robert</td>
+								<td>30/01/2017</td>
+								<td>tester</td>
+								<td>02/01/2017</td>
+								<td><a><span class="delete md-primary md-raised" ng-click="deleteScxAdmin($event, admin.sc_token)"><i class="fa fa-close"><md-tooltip md-direction="top">Delete</md-tooltip></i></span></a></td>
+
+						  	</tr>
+							
+							<tr>
+								<td>1025</td>
+								<td>Invoice</td>
+								<td>ealbert@gmail.com</td>
+								<td>$150</td>
+								<td>
+									<span class="label label-success">
+										<span>Unpaid</span>
+									</span>
+								</td>
+								<td>Jom Robert</td>
+								<td>30/01/2017</td>
+								<td>tester</td>
+								<td>02/01/2017</td>
+								<td><a><span class="delete md-primary md-raised" ng-click="deleteScxAdmin($event, admin.sc_token)"><i class="fa fa-close"><md-tooltip md-direction="top">Delete</md-tooltip></i></span></a></td>
+
+						  	</tr>
+							
+							<tr>
+								<td>1025</td>
+								<td>Invoice</td>
+								<td>ealbert@gmail.com</td>
+								<td>$150</td>
+								<td>
+									<span class="label label-success">
+										<span>Unpaid</span>
+									</span>
+								</td>
+								<td>Jom Robert</td>
+								<td>30/01/2017</td>
+								<td>tester</td>
+								<td>02/01/2017</td>
+								<td><a><span class="delete md-primary md-raised" ng-click="deleteScxAdmin($event, admin.sc_token)"><i class="fa fa-close"><md-tooltip md-direction="top">Delete</md-tooltip></i></span></a></td>
+
+						  	</tr>
+				  		</table>
+				  		<span us-spinner=""></span>
+					</div>
+					<!-- /.box-body -->
+			  	</div>
+			  	<!-- /.box -->
+			  	
+			</section>
+			<!-- middle col -->
+        	<!-- Left col -->
+        	<section class="col-lg-6 connectedSortable">
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Contact Options</h3>
+					</div>
+					<div class="box-body" style="height: 247px">
+						<div class="contact-us no-padding">
+							<dl>
+								<dt>Evan Albert</dt>
+								<dt><a href="mailto:ealbert@seamlesschex.com">ealbert@seamlesschex.com </a></dt>
+
+							</dl>
+							<div class="col-sm-12 no-padding">
+								<label class="col-sm-4 no-padding">Tool Free:</label>
+								<div class="col-sm-8 no-padding"><a href="tel:888-998-CHEX(2439)">888-998-CHEX(2439)</a></div>
+							</div>
+							<div class="col-sm-12 no-padding">
+								<label class="col-sm-4 no-padding">Direct:</label>
+								<div class="col-sm-8 no-padding">646-559-6116</div>
+							</div>
+							<div class="col-sm-12 no-padding">
+								<label class="col-sm-4 no-padding">Fax:</label>
+								<div class="col-sm-8 no-padding">888-370-9226</div>
+							</div>
+						</div>
+					</div>
+					<!--	//	End box-body	-->
+
+				</div>
+				<!--	//	End box-primary	-->
+        	</section>
+        	<!-- /.Left col -->
+        	<!-- /.right col -->
+        	<section class="col-lg-6 connectedSortable">
+				<!-- quick email widget -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+				  		<i class="fa fa-envelope"></i>
+				  		<h3 class="box-title">Quick Email</h3>
+					</div>
+					<div class="box-body">
+						<form action="#" method="post">
+							<div class="form-group">
+								<input type="email" class="form-control" name="emailto" placeholder="Email to:">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" name="subject" placeholder="Subject">
+							</div>
+							<div>
+								<textarea class="textarea" placeholder="Message" style="width: 100%; height: 75px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="box-footer clearfix">
+				  		<button type="button" class="pull-right btn btn-primary" id="sendEmail">Send
+						<i class="fa fa-arrow-circle-right"></i></button>
+					</div>
+				</div>
+        	</section>
+        	<!-- /.right col -->
+			
+        
+			<!-- right col (We are only adding the ID to make the widgets sortable)-->
+			<section class="col-lg-3 connectedSortable">
+				
+			</section>
+			<!-- right col -->
+		</div>
+		<!-- /.row (main row) -->
+
+    </section>
+    <!-- /.content -->
+	<div class="alert alert-danger" ng-if="user.error">
+		<strong>There was an error: </strong> {{user.error.error}}
+		<br>Please go back and login again
+	</div>
+	<!-- Footer Start-->
+	<div class="main-footer" ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+</div>
+<!-- Right Sidebar End-->
+
+<!-- Full body content End-->
+<script>
+	$(document).ready(function(){
+		$(".box-tool-open .fa").click(function(){
+			$(".Activity-Description").toggle();
+		});
+	});
+	$(document).ready(function(){
+		$(".box-tool-open .fa-plus-square-o").click(function(){
+			$(this).toggleClass("fa-plus-square-o");
+			$(this).addClass("fa-minus-square-o");
+		});
+		$(".box-tool-open .fa-minus-square-o").click(function(){
+			$(this).removeClass("fa-minus-square-o");
+		});
+	});
+	
+	
+</script>	
+
+

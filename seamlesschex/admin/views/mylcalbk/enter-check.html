@@ -1,0 +1,307 @@
+<!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Enter Check
+      </h1>
+      <ol class="breadcrumb">
+        <li class="active">customer-check</li>
+      </ol>
+	</section>
+
+    <!-- Main content -->
+    <section class="content">
+      
+        <div class="row">
+			<div class="col-xs-12">
+			  <div class="box">
+				<div class="box-header">
+                      <h3 class="box-title col-sm-6 col-md-6">Enter Customers Check Information</h3>
+                      <div class="enter-Check">
+                          <div class="form-group col-sm-6 col-md-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-institution"></i>
+                                        <label>Pay to the order of:</label>
+                                    </div>
+                                    <select class="form-control" ng-model="check.companyadmin" ng-options="company.name for company in companyadmin track by company.id"></select>
+                                     
+                                </div>
+                                    
+                         </div>
+                                <!-- /.form-group -->
+                     </div>       
+				 </div>
+				 <div class="box-header">
+					 <p class="alert alert-success" ng-if="checkSuccess"><strong>Success:</strong> {{checkSuccessText}}</p>
+					 <p class="alert alert-danger" ng-if="checkError"><strong>Error:</strong> {{checkErrorText}}</p>
+				 </div>
+				 <form role="form" class="ng-pristine ng-valid">
+				 	<!--<input type="hidden" ng-model="check.date" value="{{date | date:'MM/dd/yyyy'}}" />
+                    <input type="hidden" ng-model="check.authorisation_date" value="{{date | date:'MM/dd/yyyy'}}" />
+					<input type="text" ng-model="check.month" value="{{date | date:'MMMM'}}" />-->
+					<div class="box-body enter-Check">
+                    	<div class="form-group col-sm-6 col-md-6">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-user"></i>
+									<label for="inputName3">Name:</label>
+								</div>
+								<input type="text"  placeholder="Name:" class="form-control" ng-model="check.name" />
+                               
+							</div>
+								<!-- /.input group -->
+						</div>
+                       
+						<div class="form-group col-sm-6 col-md-6">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-envelope"></i>
+									<label for="inputEmail3">Email:</label>
+								</div>
+                                <input type="text"  placeholder="email:" class="form-control" ng-model="check.email" />
+							</div>
+								<!-- /.input group -->
+						</div>
+                        
+                        <div class="form-group col-sm-6 col-md-6">
+							<div class="input-group">
+								 <div class="input-group-addon">
+									<i class="fa fa-keyboard-o"></i>
+									<label for="inputAddress3">Address:</label>
+								</div>
+                                <input type="text"  placeholder="address:" class="form-control" ng-model="check.address">
+							</div>
+								<!-- /.input group -->
+						</div>
+						
+                        
+								<!-- /.input group -->
+                        <div class="col-sm-6 col-md-6">
+                        	<div class="row">
+                            	<div class="form-group col-sm-4 col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-building"></i>
+                                            <label for="inputCity3">City:</label>
+                                        </div>
+                                        <input type="text"  placeholder="city:" class="form-control" ng-model="check.city" />
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group col-sm-4 col-md-4">
+                                    <div class="input-group">
+                                       <div class="input-group-addon">
+                                            <i class="fa fa-globe"></i>
+                                            <label for="inputState3">State:</label>
+                                       </div>
+                                        <input type="text"  placeholder="state:" class="form-control" ng-model="check.state" />
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group col-sm-4 col-md-4">
+                                    <div class="input-group">
+                                       <div class="input-group-addon">
+                                            <i class="fa fa-key"></i>
+                                            <label for="inputPin3">Zip:</label>
+                                        </div>
+                                        <input type="text"  placeholder="Zip:" class="form-control" ng-model="check.zip" />
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-6 col-md-6">
+							<div class="row">
+								<div class="form-group col-sm-6 col-md-6">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-ticket"></i>
+											<label>Check Number:</label>
+										</div>
+										
+										<input type="text" placeholder="Check Number" class="form-control" ng-model="check.check_number" />
+									</div>
+								 </div>
+								 <div class="form-group col-sm-6 col-md-6">
+									 <div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa  fa-dollar"></i>
+											<label>Check Amount:</label>
+										</div>
+										
+										<input type="text" placeholder="Check Amount" class="form-control" ng-model="check.amount" ng-change="numberInWords(check.amount)" />
+									</div>
+								 </div>
+										<!-- /.input group -->
+							</div>
+						</div>
+                       
+                        <div class="form-group col-sm-6 col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-male"></i>
+                                    <label for="inputPay13">Description</label>
+                                </div>
+                                <input type="text"  placeholder="Description:" class="form-control" ng-model="check.memo1" />
+                            </div>
+                        </div>
+                       
+                        <div class="col-sm-12 col-md-12">
+							<div class="row">
+								<div class="form-group col-sm-4 col-md-4">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-ticket"></i>
+											<label>Routing Number:</label>
+										</div>
+										
+										<input type="text" placeholder="Routing #" class="form-control" maxlength="9" ng-change="routingNumberCheck()" ng-model="check.routing_number" ng-model-options="{ updateOn: 'blur' }">
+									</div>
+                                    		<!-- /.input group -->
+								 </div>
+								 <div class="form-group col-sm-4 col-md-4">
+									 <div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa  fa-dollar"></i>
+											<label>Account Number:</label>
+										</div>
+										
+										<input type="text" placeholder="Account Number #" class="form-control" ng-model="check.account_number" />
+									</div>
+								 </div>
+										<!-- /.input group -->
+                                 <div class="form-group col-sm-4 col-md-4">
+									 <div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa  fa-dollar"></i>
+											<label>Confirm Account Number:</label>
+										</div>
+										
+										<input type="text" placeholder="Confirm Account #" class="form-control" ng-model="check.confirm_account_number" />
+									</div>
+								 </div>
+										<!-- /.input group -->
+							</div>
+						</div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="checkbox col-sm-4 col-md-3">
+                              <label>
+                                <md-checkbox ng-model="check.recurreing_payments" aria-label="Recurring Payments" ng-init="" ng-true-value="1" ng-false-value="0" >Recurring Payments</md-checkbox>
+                              </label>
+                            </div>
+                            <div class="checkbox col-sm-4 col-md-3" style="margin-top: 10px;">
+                              <label>
+                                <md-checkbox ng-model="check.verify_before_save" aria-label="Verify This Check Before Saving" ng-init="" ng-true-value="1" ng-false-value="0" >Enable Basic Verification</md-checkbox>
+                              </label>
+                            </div>
+                           
+                            <div class="checkbox col-sm-4 col-md-3" style="margin-top: 10px;">
+								
+                              <label ng-if="company_permissions.FUNDCONFIRMATION === 'yes'">
+                                <md-checkbox ng-model="check.fund_confirmation" aria-label="Fund Confirmation" ng-init="" ng-true-value="1" ng-false-value="0" >Enable Fund Confirmation</md-checkbox>
+                              </label>
+                            </div>
+                             <div class="checkbox col-sm-4 col-md-3" style="margin-top: 10px;">
+								
+                              <label>
+                                <md-checkbox ng-model="check.signature_not_required" aria-label="Signature not Required" ng-init="" ng-true-value="1" ng-false-value="0" >Signature not Required</md-checkbox>
+                              </label>
+                            </div>
+                            
+                            <div style="border-top: 0 none;" class="box-footer col-sm-12 col-md-11">
+                            	<button class="btn btn-primary pull-right" type="submit" ng-click="saveCheck()">Enter Check</button>
+                            </div>
+                        </div>
+                            
+					</div>
+                    </form>
+                    <div class="check-wrapper text-center">
+                    	<div class="inner-check-wrapper center-block">
+								<div class="RoutingInfoUserNameDiv">
+                                    <input type="text" class="routinginfo_name" disabled="disabled" value="{{check.routingInfo.name}}">
+								</div>
+                                <div class="RoutingInfoAddressDiv">
+                                    <input type="text" class="routinginfo_address" disabled="disabled" value="{{check.routingInfo.address}}">
+								</div>
+                                 <div class="RoutingInfoZipDiv">
+                                    <input type="text" class="routinginfo_zip" disabled="disabled" value="{{check.routingInfo.zip}}&nbsp;{{check.routingInfo.city}}&nbsp;{{check.routingInfo.state_code}}">
+								</div>
+                               
+                        		<div class="RoutingInfoStatePhoneDiv">
+                                    <input type="text" class="routinginfo_phone" disabled="disabled" value="{{check.routingInfo.phone}}">
+								</div>
+								<div class="EnterCheckDateDiv">
+                                    <input type="text" class="Check_Date" disabled="disabled" value="{{date | date:'MM/dd/yyyy'}}">
+								</div>
+                            	<div class="UserNameDiv">
+                                    <input type="text" class="User_Name" disabled="disabled" value="{{check.name}}">
+								</div>
+								<div class="UserEmailDiv">
+                                    <input type="text" class="User_Email" disabled="disabled" value="{{check.email}}">
+								</div>
+								<div class="UserAddressDiv">
+                                    <input type="text" class="User_Address" disabled="disabled" value="{{check.address}}">
+								</div>
+								<div class="CityNameDiv">
+                                    <input type="text" class="City_Name" disabled="disabled" value="{{check.city}},&nbsp;{{check.state}},&nbsp;{{check.zip}}">
+								</div>
+								
+								<div class="CompanyNameDiv">
+                                    <input type="text" class="companyname" disabled="disabled" value="{{check.companyadmin.name}}">
+								</div>
+                                <div class="DescriptionDiv">
+                                    <input type="text" class="Description" disabled="disabled" value="{{check.memo1}}">
+								</div>
+								<div class="amountInWords">
+								Pay Exactly {{amountWords}} Dollars And Cents ///////
+								</div>
+                                <div class="custom-authorization">
+								Customer authorization obtained: {{date | date:'MM/dd/yyyy'}}
+								</div>
+                                <div class="UserSignatureDiv" ng-if="!check.signature_not_required">
+                                    <input type="text" class="User_Signature" disabled="disabled" value="{{check.name}}">
+								</div>
+                                <div class="WithoutSignatureDiv" ng-if="check.signature_not_required" ><strong>SIGNATURE NOT REQUIRED</strong><p>Payment has been authorized by the depositor.<br>Payee to hold you harmless for payment of this document.<br>This document shall be deposited only to credit of payee.<br>Absence of endorsement is guaranteed by payee's bank.</p>
+                                </div>
+                                <div class="CheckNumberDiv">
+                                    <input type="text" class="check-number" placeholder="Check Number" disabled="disabled" value="{{check.check_number}}">
+								</div>
+                                <div class="CheckAmountDiv">
+                                    <input type="text" class="check-amount" disabled="disabled" value="{{check.amount}}">
+								</div>
+                                <div class="RoutingDiv">
+                                    <input type="text" class="check-routing" placeholder="Routing Number #" disabled="disabled" value="{{check.routing_number}}">
+								</div>
+                                <div class="CheckingAccountDiv">
+                                    <input type="text" class="checking-account" placeholder="Account Number #" disabled="disabled" value="{{check.account_number}}">
+								</div>
+                                <div class="ConfirmAccountDiv">
+                                    <input type="text" class="confirm-account" placeholder="Confirm Account Number #" disabled="disabled" value="{{check.confirm_account_number}}">
+								</div>
+                        </div>
+                    </div>
+			  </div>
+			  <!-- /.box -->
+			</div>
+		  </div>
+        <!-- /.box-body -->
+    </section>
+    
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

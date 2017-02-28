@@ -1,0 +1,36 @@
+<div class="login-box set-password" style="min-height:400px;">
+	<p class="alert alert-danger" ng-if="setpassError === true"><strong>Error:</strong> {{setpassErrorText}}</p>
+	<div ng-if="setpassError  === false">
+	<div class="login-logo">
+		<a href="#/"><img src="assets/img/seamlesslogo.png" alt="Logo" class="" /></a>
+	 </div>
+	  <!-- /.login-logo -->
+	  <div class="login-box-body box box-info" >
+		<h3 class="login-box-msg">Set Your Password </h3>
+		<p class="alert alert-danger" ng-if="setpassFormError"><strong>Error:</strong> {{setpassFormErrorText}}</p>
+		<p class="alert alert-success" ng-if="setpassSuccess"><strong>Success:</strong> {{setpassSuccessText}}</p>
+		<form name="createmerchantpassword" novalidate autocomplete="off" class="form-horizontal ng-pristine">
+			 <div class="form-group has-feedback">
+				<div class="col-sm-12">
+					<div class="input-group">
+						<input type="password" placeholder="Please enter password" name="password" class="form-control" placeholder="Enter Password" ng-model="setpass.password">
+					</div>
+				</div>
+			  </div>
+			  <div class="form-group has-feedback">
+				<div class="col-sm-12">
+					<div class="input-group">
+						<input type="password" placeholder="Please enter confirm Password" name="cpassword" 
+						ng-model="setpass.cpassword"  autocomplete="off" class="form-control" placeholder="EnterConfirm Password">
+					</div>
+				</div>
+			  </div>
+			  <div class="form-group">
+					<div class="text-center col-sm-12">
+						<button class="btn btn-primary btn-block btn-flat" ng-click="setPassword();">SIGN ME UP!</button>
+					</div>
+				</div>
+		</form>
+	  </div>
+	  </div>
+</div>

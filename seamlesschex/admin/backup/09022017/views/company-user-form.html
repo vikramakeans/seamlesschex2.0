@@ -1,0 +1,116 @@
+<!-- Content Wrapper. Contains page content -->
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Add New Merchant User
+      </h1>
+      <ol class="breadcrumb">
+        <li class="active">merchant-user-new</li>
+      </ol>
+	</section>
+    <!-- Main content -->
+	<section class="content">
+		<div class="row">
+			<div class="col-xs-12">
+				<flash-message >
+				</flash-message>
+				<div class="">
+				<div class="nav-tabs-custom" ng-controller="MultiStepFormController as companyAdmin">
+					<ul class="nav nav-tabs">
+						<li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
+						  <a href="javascript:void(0)" ng-click="goToStep($index)"><span class="tabNumber">{{$index + 1}} </span><span class="tabName">{{step}}</span></a>
+						</li>
+					</ul>
+							
+			<div class="col-md-12 tab-content">
+				<span us-spinner=""></span>
+				<div class="box box-info">
+					<div class="box-header">
+						 <p class="alert alert-success" ng-if="companyuserSuccess"><strong>Success:</strong> {{companyuserSuccessText}}</p>
+						 <p class="alert alert-danger" ng-if="companyuserError"><strong>Error:</strong> {{companyuserErrorText}}</p>
+					</div>
+					<div ng-switch on="selection">
+						<!-- First -->
+						<div ng-switch-when="User Details" >
+							<form  class="form-horizontal">
+								<div class="box-body">
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="inputuserUsername3">Email</label>
+										<div class="col-sm-4">
+											<input id="inputuserUsername3" name="email" class="form-control" type="text"  ng-model="companyuser.email" placeholder="Email"/>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="inputuserSelectCompany3">Account</label>
+										<div class="col-sm-4">
+										
+										<!--<select ui-select2="" ng-model="companyuser.company_admin" class="form-control" ng-if="authSuAdmin || authScxAdmin" ng-change="getCompanyPermission(companyuser.company_admin);">-->
+										<select ui-select2="" name="company_admin" ng-model="companyuser.company_admin" 
+											  ng-required="!disabled" class="form-control" ng-if="authSuAdmin || authScxAdmin"
+											
+										>
+											<option value="">Select Account</option>
+											<option ng-repeat="companyadmin in company.company_admin" value="{{companyadmin.mc_token}}">{{companyadmin.company_name}} {{companyadmin.company_email}}</option>
+										 </select>
+										 <select name="company_admin" ng-model="check.company_admin" class="form-control" 
+											  ng-change="getCompanyUsers(check.company_admin)" ng-if="authcompAdmin || authcompUser">
+											<option ng-repeat="companyadmin in companyadmin" value="{{companyadmin.mc_token}}"> {{companyadmin.email}}</option>
+										 </select>
+										</div>
+									
+									</div>
+									
+									<div class="form-group" >
+										<label class="col-sm-2 control-label" for="inputTrial3">Access Type</label>
+										<md-radio-group ng-model="companyuser.user_settings">
+										<div class="col-sm-2 radio-top-margin">
+											  <md-radio-button value="VIEWPRINT" class="md-primary" >View and Print Only</md-radio-button>
+										</div>
+										<div class="col-sm-3 radio-top-margin">
+											  <md-radio-button value="VIEWPRINTENTER" class="md-primary"> View, Print, and Enter Checks</md-radio-button>
+										</div>
+										</md-radio-group>
+									</div>
+								</div>
+								<div class="box-footer">
+									<div class="row">
+										<div class="col-sm-offset-2 col-sm-6">
+											
+											<button class="btn btn-info"  id="saveButton"  type="submit" ng-click="saveCompanyUser()"   ng-if="action === 'addCompanyUser'">Invite</button>
+											<!--<button class="btn btn-info" type="submit" ng-click="updateCompanyUser()" ng-if="action === 'editCompanyUser'">Update</button>-->
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="alert alert-danger" ng-if="user.error">
+						<strong>There was an error: </strong> {{user.error.error}}
+						<br>Please go back and login again
+					</div>
+	                </div>
+	               </div>
+				</div>
+			</div>
+		</div>
+	</section>
+			<!-- </div> -->
+     <!--    </section>
+	</div> -->
+	
+    
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+
+
+

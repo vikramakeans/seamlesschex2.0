@@ -1,0 +1,150 @@
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar" ng-controller="NavigationController as navigation" ng-if="authenticated == true">
+ 
+ <!--<button class="btn btn-primary" ng-click="user.backToSA()">Back to admin!</button>-->
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>{{currentUser.name}}</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+	  
+	  
+     
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+	  <!--{{navigation.menu}}-->
+	  <!--{{currentUser.permissions.ADDCHECK}}-->
+	  <ul class="sidebar-menu">
+			<!-- super-admin menu -->
+			
+			<!-- For submenu false -->
+			<li class="treeview" ng-repeat="item in navigation.menu"  ng-class="{'active' : $state.current.name == item.sref}"  ng-if="authSuAdmin == true && item.subMenu === false">
+				<a ui-sref="{{item.sref}}">
+					<i ng-class="item.iconClasses"></i> <span>{{item.name}}</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-left pull-left"></i>
+					</span>
+					
+				 </a>
+				
+			</li>
+			<!-- For submenu true -->
+			<li class="treeview" ng-repeat="item in navigation.menu"  ng-class="{'active' : item.active == true}"  ng-if="authSuAdmin == true && item.subMenu === true">
+				 <a href="javascript:void(0);" ng-click="showChilds($index)" >
+					<i ng-class="item.iconClasses"></i> <span>{{item.name}}</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-left pull-left"></i>
+					</span>
+					
+				 </a>
+				 <div class="treeview-menu-div">
+					 <ul class="animate-show treeview-menu {{item.active}}"   ng-show="item.active" >
+						<li ng-repeat="menuitem in item.menu" ng-class="{'active' : $state.current.name == menuitem.sref}"><a ui-sref="{{menuitem.sref}}" ><i ng-class="menuitem.iconClasses"></i> {{menuitem.name}} </a>
+						</li>
+					  </ul>
+				  </div>
+				  
+			</li>
+			
+			<!-- seamless chex admin menu -->
+			<!-- For submenu false -->
+			<li class="treeview" ng-repeat="item in navigation.adminmenu"  ng-class="{'active' : $state.current.name == item.sref}"  ng-if="authScxAdmin == true && item.subMenu === false">
+				<a ui-sref="{{item.sref}}">
+					<i ng-class="item.iconClasses"></i> <span>{{item.name}}</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-left pull-left"></i>
+					</span>
+					
+				 </a>
+				
+			</li>
+			<!-- For submenu true -->
+			<li class="treeview" ng-repeat="item in navigation.adminmenu"  ng-class="{'active' : item.active == true}" ng-if="authScxAdmin === true && item.subMenu === true">
+				<a href="javascript:void(0);" ng-click="showChilds($index)">
+					<i ng-class="item.iconClasses"></i> <span>{{item.name}}</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-left pull-left"></i>
+					</span>
+					
+				 </a>
+				 <div class="treeview-menu-div">
+					 <ul class="animate-show treeview-menu {{item.active}}"   ng-show="item.active" >
+						<li ng-repeat="menuitem in item.menu" ng-class="{'active' : $state.current.name == menuitem.sref}"><a ui-sref="{{menuitem.sref}}" ><i ng-class="menuitem.iconClasses"></i> {{menuitem.name}} </a>
+						</li>
+					  </ul>
+				  </div>
+			</li>
+			
+			<!-- company-admin menu -->
+			<!-- For submenu false -->
+			<li class="treeview" ng-repeat="item in navigation.companyadminmenu"  ng-class="{'active' : $state.current.name == item.sref}"  ng-if="authcompAdmin == true && item.permissionValue === 'yes' && item.subMenu === false">
+				<a ui-sref="{{item.sref}}">
+					<i ng-class="item.iconClasses"></i> <span>{{item.name}}</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-left pull-left"></i>
+					</span>
+					
+				 </a>
+				
+			</li>
+			<!-- For submenu true -->
+			<li class="treeview" ng-repeat="item in navigation.companyadminmenu"  ng-class="{'active' : item.active == true}" ng-if="authcompAdmin == true && item.permissionValue === 'yes' && item.subMenu === true">
+			
+				<a href="javascript:void(0);" ng-click="showChilds($index)">
+					<i ng-class="item.iconClasses"></i> <span>{{item.name}}</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-left pull-left"></i>
+					</span>
+					
+				 </a>
+				 <div class="treeview-menu-div">
+					 <ul class="animate-show treeview-menu {{item.active}}"   ng-show="item.active" >
+						<li ng-repeat="menuitem in item.menu" ng-class="{'active' : $state.current.name == menuitem.sref}" ng-if="menuitem.permissionValue === 'yes'"><a ui-sref="{{menuitem.sref}}" ><i ng-class="menuitem.iconClasses"></i> {{menuitem.name}} </a>
+						</li>
+					  </ul>
+				  </div>
+			</li>
+			<!-- company-user menu -->
+			<!-- For submenu false -->
+			<li class="treeview" ng-repeat="item in navigation.companyusermenu"  ng-class="{'active' : $state.current.name == item.sref}"  ng-if="authcompUser == true && item.permissionValue === 'yes' && item.subMenu === false">
+				<a ui-sref="{{item.sref}}">
+					<i ng-class="item.iconClasses"></i> <span>{{item.name}}</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-left pull-left"></i>
+					</span>
+					
+				 </a>
+				
+			</li>
+			<!-- For submenu true -->
+			<li class="treeview" ng-repeat="item in navigation.companyusermenu"  ng-class="{'active' : item.active == true}" ng-if="authcompUser == true && item.permissionValue === 'yes' && item.subMenu === true">
+				<a href="javascript:void(0);" ng-click="showChilds($index)">
+					<i ng-class="item.iconClasses"></i> <span>{{item.name}}</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-left pull-left"></i>
+					</span>
+					
+				 </a>
+				 <div class="treeview-menu-div">
+					 <ul class="animate-show treeview-menu {{item.active}}"   ng-show="item.active" >
+						<li ng-repeat="menuitem in item.menu" ng-class="{'active' : $state.current.name == menuitem.sref}" ng-if="menuitem.permissionValue === 'yes'" ><a ui-sref="{{menuitem.sref}}" ><i ng-class="menuitem.iconClasses"></i> {{menuitem.name}} </a>
+						</li>
+					  </ul>
+				  </div>
+			</li>
+	  </ul>
+	  <!--{{navigation.menu}}-->
+      
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+  <div class="control-sidebar-bg"></div>
+  
+  

@@ -1,0 +1,92 @@
+<!-- Content Wrapper. Contains page content -->
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>
+			Status
+		</h1>
+		<ol class="breadcrumb">
+			<li class="active" ng-if="action === 'addStatus'">status-add</li>
+			<li class="active" ng-if="action === 'editStatus'">status-edit</li>
+		</ol>
+	</section>
+
+	<!-- Main content -->
+	<section class="content">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="">
+					<div class="nav-tabs-custom" ng-controller="MultiStepFormController as companyAdmin">
+						<ul class="nav nav-tabs">
+							<li class="active" ng-class="">
+							  <a href="javascript:void(0)" >Status</a>
+							</li>
+						</ul>
+						<div class="col-md-12 tab-content">
+							<span us-spinner=""></span>
+							<div class="box box-info">
+								<div ng-switch on="selection">
+									<!-- First -->
+									<div ng-switch-when="Company Details" >
+										<form class="form-horizontal">
+											<div class="box-header">
+												 <p class="alert alert-success" ng-if="status.statusSuccess"><strong>Success:</strong> {{status.statusSuccessText}}</p>
+												 <p class="alert alert-danger" ng-if="status.statusError"><strong>Error:</strong> {{status.statusErrorText}}</p>
+											</div>
+											<div class="box-body">
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserStatus3">Status</label>
+													<div class="col-sm-4">
+														<input id="inputuserStatus3" class="form-control" type="text" placeholder="Status" ng-model="status.status"  />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserStatus Name3">Status Name</label>
+													<div class="col-sm-4">
+														<input id="inputuserStatus Name3" class="form-control" type="text" placeholder="Status Name" ng-model="status.status_name"   />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserColor3">Color</label>
+													<div class="col-sm-4">
+														<input colorpicker class="form-control" ng-model="status.color" placeholder="Color" type="text" />
+														
+													</div>
+												</div>
+											</div>
+											<div class="box-footer">
+												<div class="row">
+													<div class="col-sm-offset-2 col-sm-6">
+														<button class="btn btn-default" type="submit" ng-click="$state.go('status')">Cancel</button>
+														<button class="btn btn-info" type="submit" ng-click="updateStatus()" ng-if="action === 'editStatus'">Update</button>
+														<button class="btn btn-info" type="submit" ng-click="addStatus()" ng-if="action === 'addStatus'">Save</button>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="alert alert-danger" ng-if="user.error">
+								<strong>There was an error: </strong> {{user.error.error}}
+								<br>Please go back and login again
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+</div>
+

@@ -1,0 +1,544 @@
+<!-- Content Wrapper. Contains page content -->
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1 > Account </h1>
+      <ol class="breadcrumb">
+        <li class="active" ng-if="action ==='MerchantAccount'">Account</li>
+      </ol>
+	</section>
+
+    <!-- Main content -->
+	<section class="content">
+		  
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="">
+					
+					<div class="nav-tabs-custom" ng-controller="MultiStepFormController as companyAdmin">
+						<ul class="nav nav-tabs">
+							<li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
+							  <a href="javascript:void(0)" ng-click="goToStep($index)"><span class="tabNumber">{{$index + 1}} </span><span class="tabName">{{step}}</span></a>
+							</li>
+						</ul>
+							
+								<div class="col-md-12 tab-content" ng-controller="UserProfileController as userprofile" style="background-color: transparent;padding-left: 0;padding-right: 0;">
+									
+										<div class="Marchant-Account">
+											<div ng-switch on="selection">
+												
+												<!-- First -->
+												<div ng-switch-when="Company & Team" >
+												<div class="items_wrap">
+												<div class="box box-primary">
+													<div class="box-header with-border">
+														<h3 class="box-title">Merchant's Info</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													
+													<div class="box-body">
+														<div class="form-group col-sm-6">
+															<label class="control-label col-sm-12">Company Name</label>
+															<label class="text-aqua col-sm-12" >SeamlessChex</label>
+															<hr class="col-sm-12" style="margin-top: 0px;">
+														</div>
+													</div>
+													<!--	//	End box-body	-->
+													
+													</div>
+														<!--	//	End box-primary	-->
+													</div>
+														<!--	//	End items_wrap	-->
+													
+													<div class="items_wrap">
+													<div class="box box-primary">
+													<div class="box-header with-border">
+														<h3 class="box-title">Merchant's User</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													<form class="">
+														<div class="box-body">
+															<div class="form-group col-sm-6 col-md-6">
+															<div class="input-group">
+																<div class="input-group-addon">
+																	<i class="fa fa-envelope"></i>
+																	<label style="margin-bottom: 0;" for="inputuserUsername3">Email</label>
+																</div>
+																	<input id="inputuserUsername3" name="email" class="form-control" type="text"  ng-model="companyuser.email" placeholder="Email"/>
+															</div>
+																<!--	//	End form-group	-->
+															</div>
+															<div class="form-group col-sm-6 col-md-6" >
+																<label class="col-sm-4 control-label" for="inputTrial3">Access Type</label>
+																<md-radio-group ng-model="companyuser.user_settings">
+																<div class="col-sm-8">
+																	  <md-radio-button value="VIEWPRINT" class="md-primary" >View and Print Only</md-radio-button>
+																</div>
+																<label class="col-sm-4 control-label"></label>
+																<div class="col-sm-8 radio-top-margin">
+																	  <md-radio-button value="VIEWPRINTENTER" class="md-primary"> View, Print, and Enter Checks</md-radio-button>
+																</div>
+																</md-radio-group>
+															</div>
+																<!--	//	End form-group	-->
+														</div>
+															<!--	//	End box-body	-->
+														<div class="box-footer">
+															<div class="row">
+																<div class="text-right col-sm-12">
+
+																	<button class="btn btn-primary"  id="saveButton"  type="submit" ng-click="saveCompanyUser()">Invite</button>
+																	<!--<button class="btn btn-info"  id="saveButton"  type="submit" ng-click="saveCompanyUser()"   ng-if="action === 'addCompanyUser'">Invite</button>-->
+																</div>
+															</div>
+														</div>
+													</form>
+														<!--	//	End form	-->
+													<div class="box-body table-responsive no-padding">
+				   
+														<div style="visibility: hidden">
+														  <div class="md-dialog-container" id="myStaticDialog">
+															<md-dialog>
+															  This is a pre-rendered dialog.
+															</md-dialog>
+														  </div>
+														</div>
+													  <table class="table table-hover table-striped th-color">
+														<tr>
+														  <th>Team Member</th>
+														  <th>Invite Date</th>
+														  <th>Status</th>
+														  <th>Access Type</th>
+														</tr>
+														
+														<tr>
+													  	<!--<tr ng-repeat="user in companyuser.users | filter:searchText | orderBy:propertyName:reverse" ng-animate="'animate'">-->
+														  
+														  <td>{{user.email}}ealbert@gmail.com</td>
+														  <td>{{user.invited_date}} {{user.time}}09/01/2016 00:03:55</td>
+														  <td>
+															<!--<span class="status-label {{user.status.status_code}}" style="background-color:{{user.status.color}}">
+																<span  ng-if="user.status.status_name == 'Active'" >Invite Accepted</span>
+																<span  ng-if="user.status.status_name == 'Pending'"  >Pending (invite sent)</span>
+																<span  ng-if="user.status.status_name != 'Pending' && user.status.status_name != 'Active'"  >{{user.status.status_name}}</span>
+															</span>-->
+															<span class="label label-primary">
+																<span>Pending(Invite sent)</span>
+															</span>
+														  </td>
+														  <td>
+														   <!--<button  ng-if="user.status.status_name == 'Active'" style="background-color:{{user.status.color}}" class="btn btn-primary" ng-click="actionAccess(user.status.id, user.sc_token);" >Revoke Access</button>
+														   <button  ng-if="user.status.status_name == 'Pending'"  class="btn btn-primary" ng-click="actionAccess(user.status.id, user.sc_token);" >Invoke Access</button>-->
+														   <span class="label label-warning">Invoke Access</span>
+														  </td>
+														  
+														  </tr>
+														  
+														  <tr>
+														  <td>{{user.email}}ealbert@gmail.com</td>
+														  <td>{{user.invited_date}} {{user.time}}09/01/2016 00:03:55</td>
+														  <td>
+															<span class="label label-primary">
+																<span>Joined(Invite Accepted)</span>
+															</span>
+														  </td>
+														  <td>
+														   <span class="label label-success">Revoke Access</span>
+														  </td>
+														  
+														  </tr>
+														  <tr ng-if="companyuserMessage">
+															<td colspan="7">{{companyuserMessageText}}</td>
+														 </tr>
+													  </table>
+													  <span us-spinner=""></span>
+													</div>
+													<!-- /.box-body -->
+													
+													</div>
+														<!--	//	End box-primary	-->
+													</div>
+														<!--	//	End items_wrap	-->	
+													<div class="items_wrap">
+													<div class="box box-primary">
+													<div class="box-header with-border">
+														<h3 class="box-title">Add a Business</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													<form class="">
+														<div class="box-body">
+															<div class="form-group col-sm-6 col-md-6">
+															<div class="input-group">
+																<div class="input-group-addon">
+																	<i class="fa fa-user"></i>
+																	<label for="inputuserName3" style="margin-bottom: 0;">Name:</label>
+																</div>
+																	<input id="inputuserName3" class="form-control" type="text" placeholder="Name" ng-model="companysub.name"   />
+															</div>
+																<!--	//	End form-group	-->
+															</div>
+															<div class="form-group col-sm-6 col-md-6">
+															<div class="input-group">
+																<div class="input-group-addon">
+																	<i class="fa fa-envelope"></i>
+																	<label style="margin-bottom: 0;" for="inputuserEmail3">Email</label>
+																</div>
+																	<input id="inputuserEmail3" class="form-control" type="text" placeholder="Email" ng-model="companysub.email"   />
+															</div>
+																<!--	//	End form-group	-->
+															</div>
+														</div>
+														<!--	//	End box-body	-->
+														<div class="box-footer">
+															<div class="row">
+																<div class="text-right col-sm-12">
+																	<button class="btn btn-default" type="submit" ng-click="$state.go('company-sub')">Cancel</button>
+																	<button class="btn btn-primary" type="submit" ng-click="saveCompanySub()">Save</button>
+																	<button class="btn btn-info" type="submit" ng-click="updateCompanySub()" ng-if="action === 'editCompanySub'">Update</button>
+																</div>
+															</div>
+														</div>
+													</form>
+														<!--	//	End form	-->
+													
+													<div class="box-body table-responsive no-padding">
+														<div style="visibility: hidden">
+														  <div class="md-dialog-container" id="myStaticDialog">
+															<md-dialog>
+															  This is a pre-rendered dialog.
+															</md-dialog>
+														  </div>
+														</div>
+													  <table class="table table-hover table-striped th-color" ng-controller="CheckController as check">
+														<tr>
+														  <th>ID</th>
+														  <th width="100">Action</th>
+														  <th>Email</th>
+														  <th>Company name</th>
+														</tr>
+														<tr ng-repeat="user in companyadmin | filter:searchText | orderBy:propertyName:reverse" ng-animate="'animate'">
+														  <td>{{$index + 1}}</td>
+														  <td>
+															<a ui-sref="company-user-edit({ sc_token: user.sc_token })" ><i class="fa fa-edit"></i></a> &nbsp;
+															<a><span class="delete" ng-click="deleteCompanyUser($event, user.sc_token)"><i class="fa fa-close"></i></span></a>&nbsp;
+															<a><span class="revoke" ng-click="revokeUser($event, user.sc_token)"><i class="fa fa-circle-o"></i></span></a>&nbsp;
+															<!--<a><span class="ghost" ng-click="ghostEnable(user.sc_token)"><i class="fa fa-user"></i></span></a>&nbsp;
+															<a ui-sref="user-permissions({ sc_token: user.sc_token })"><i class="fa fa-eye"></i></a>&nbsp;-->
+														  </td>
+														  <td>{{user.email}}</td>
+														  <td>{{user.name}}</td>
+														  </tr>
+														  <tr ng-if="errorTrue">
+															<td colspan="6">{{error}}</td>
+														 </tr>
+													  </table>
+
+													</div>
+													<!-- /.box-body -->
+													
+													</div>
+														<!--	//	End box-primary	-->
+													</div>
+														<!--	//	End items_wrap	-->
+												</div>
+												
+												
+														
+												<!-- Second -->
+												<div ng-switch-when="Billing" >
+													<div class="items_wrap">
+													<div class="box box-primary">
+													<div class="box-header with-border">
+														<h3 class="box-title">Payment Method</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													
+													<div class="box-body">
+														<div class="form-group col-sm-12 col-md-12" >
+															<div class="col-md-6">
+																<i class="fa fa-credit-card"></i>
+																<label class="control-label" for="">American Express card ending in 2005 </label>
+
+															</div>
+															<div class="col-md-6">
+																<label class="control-label" for="">Expires 3/2020</label>
+															</div>
+														</div>
+															<!--	//	End form-group	-->
+														<div class="box-footer col-sm-12">
+														<div class="row">
+															<div class="text-right col-sm-12">
+																<button class="btn btn-primary" type="submit">UPDATE BILLING</button>
+															</div>
+														</div>
+													</div>
+													</div>
+													
+													</div>
+														<!--	//	End box-primary	-->
+													</div>
+														<!--	//	End items_wrap	-->
+														
+													<div class="items_wrap">
+													<div class="box box-primary">
+													<div class="box-header with-border">
+														<h3 class="box-title">Adjust Subscription</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													
+													<form class="form-horizontal">
+													<div class="box-body">
+														<div class="form-group col-sm-12 col-md-12" >
+															<label class="control-label col-md-2" for="">Plan</label>
+															<div class="col-md-4">	
+															<select class="form-control" ng-model="check.userplan" ng-options=""></select>
+															</div>
+														</div>
+															<!--	//	End form-group	-->
+														<div class="box-footer col-sm-12">
+															<div class="row">
+																<div class="text-right col-sm-12">
+																	<button class="btn btn-primary" type="submit">UPDATE</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													</form>
+														<!--	//	End form	-->
+													</div>
+														<!--	//	End box-primary	-->
+													</div>
+														<!--	//	End items_wrap	-->
+													
+													<div class="items_wrap">
+													<div class="box box-primary">
+													<div class="box-header with-border">
+														<h3 class="box-title">Subscriptions</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													<form class="">
+														<div class="box-body">
+															
+															<div class="form-group col-sm-12 col-md-12" >
+																<md-radio-group ng-model="companyuser.user_settings">
+																<div class="col-sm-3 radio-top-margin">
+																	  <md-radio-button value="FONDCONFORMATION" class="md-primary" >Fundconfirmation</md-radio-button>
+																</div>
+																
+																<div class="col-sm-3 radio-top-margin">
+																	  <md-radio-button value="SIGNATURE" class="md-primary">Signature</md-radio-button>
+																</div>
+																<div class="col-sm-3 radio-top-margin">
+																	  <md-radio-button value="PAYMENTLINK" class="md-primary">Payment Link</md-radio-button>
+																</div>
+																<div class="col-sm-3 radio-top-margin">
+																	  <md-radio-button value="BANKAUTHLINK" class="md-primary">Bank Auth Link</md-radio-button>
+																</div>
+																</md-radio-group>
+															</div>
+																<!--	//	End form-group	-->
+														</div>
+															<!--	//	End box-body	-->
+														<div class="box-footer">
+															<div class="row">
+																<div class="text-right col-sm-12">
+
+																	<button class="btn btn-primary"  id="inviteButton"  type="submit" ng-click="saveCompanyUser()">Invite</button>
+																	<!--<button class="btn btn-info"  id="saveButton"  type="submit" ng-click="saveCompanyUser()"   ng-if="action === 'addCompanyUser'">Invite</button>-->
+																</div>
+															</div>
+														</div>
+													</form>
+														<!--	//	End form	-->
+													<div class="box-body table-responsive no-padding">
+				   
+														<div style="visibility: hidden">
+														  <div class="md-dialog-container" id="myStaticDialog">
+															<md-dialog>
+															  This is a pre-rendered dialog.
+															</md-dialog>
+														  </div>
+														</div>
+													  <table class="table table-hover table-striped th-color">
+														<tr>
+														   <th>Subscription</th>
+														  <th>Amount</th>
+														  <th>Next Bill</th>
+														  <th>Status</th>
+														</tr>
+														
+														<tr>
+													  	<!--<tr ng-repeat="user in companyuser.users | filter:searchText | orderBy:propertyName:reverse" ng-animate="'animate'">-->
+														  
+														  <td>Retain Metered&trade;</td>
+														  <td>amount varies/mo</td>
+														  <td>8 Day left</td>
+														  <td>
+															<span class="label label-primary">
+																<span>Active</span>
+															</span>
+														  </td>
+														  
+														  </tr>
+														  
+														  
+														  <tr ng-if="companyuserMessage">
+															<td colspan="7">{{companyuserMessageText}}</td>
+														 </tr>
+													  </table>
+													  <span us-spinner=""></span>
+													</div>
+													<!-- /.box-body -->
+													
+													</div>
+														<!--	//	End box-primary	-->
+													</div>
+														<!--	//	End items_wrap	-->	
+														
+													<div class="items_wrap">
+													<div class="box box-primary">
+													<div class="box-header with-border">
+														<h3 class="box-title">Plan Details</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													
+													<form class="form-horizontal">
+													<div class="box-body">
+														<div class="form-group col-md-6">
+															<label class="col-sm-6">Subscription</label>
+															<div class="col-sm-6">
+																{{company.stripe_plan}}
+															</div>
+
+														</div>
+														<div class="form-group col-md-6">
+															<label class="col-sm-6">Status</label>
+															<div class="col-sm-6 text-light-blue">		{{company.status.status_name}}Active
+															</div>
+														</div>
+														<div class="form-group col-md-6">
+															<label class="col-sm-9">Total Number Of checks</label>
+															<div class="col-sm-3">		{{company.company_settings.TOTALNOCHECK}}3
+															</div>
+														</div>
+														<div class="form-group col-md-6">
+															<label class="col-sm-9">Number Of checks remaining</label>
+															<div class="col-sm-3">		{{company.company_settings.NOOFCHECKREMAINING}}3
+															</div>
+														</div>
+														<!-- <div ng-if="company.company_settings.FUNDCONFIRMATION === 'yes'"> -->
+														<div>
+															<div class="form-group col-md-6">
+																<label class="col-sm-9">Total Number Of Fundconfirmation</label>
+																<div class="col-sm-3">		{{company.company_settings.TOTALFUNDCONFIRMATION}}0
+																</div>
+															</div>
+															<div class="form-group col-md-6">
+																<label class="col-sm-9">Number Of Fundconfirmation remaining</label>
+																<div class="col-sm-3">		{{company.company_settings.REMAININGFUNDCONFIRMATION}}0
+																</div>
+															</div>
+														</div>
+														<!--<div ng-if="company.company_settings.BANKAUTHLINK === 'yes'">-->
+														<div>
+															<div class="form-group col-md-6">
+																<label class="col-sm-9">Total Number Of bankauth</label>
+																<div class="col-sm-3">		{{company.company_settings.TOTALPAYAUTH}}0
+																</div>
+															</div>
+															<div class="form-group col-md-6">
+																<label class="col-sm-9">Number Of bankauth remaining</label>
+																<div class="col-sm-3">		{{company.company_settings.PAYAUTHREMAINING}}0
+																</div>
+															</div>
+														</div>
+														<!--<div ng-if="company.user_settings.COMPANY === 'yes'">-->
+														<div>
+															<div class="form-group col-md-6">
+																<label class="col-sm-9">Number Of Business</label>
+																<div class="col-sm-3">		{{company.company_settings.TOTAL_COMPANY}}1
+																</div>
+															</div>
+															<div class="form-group col-md-6">
+																<label class="col-sm-9">Number Of Business remaining</label>
+																<div class="col-sm-3">		{{company.company_settings.REMAINING_COMPANY}}1
+																</div>
+															</div>
+														</div>
+														<!--<div ng-if="company.user_settings.USER === 'yes'">-->
+														<div>
+															<div class="form-group col-md-6">
+																<label class="col-sm-9">Number Of Users</label>
+																<div class="col-sm-3">		{{company.company_settings.TOTAL_USER}}2
+																</div>
+															</div>
+															<div class="form-group col-md-6">
+																<label class="col-sm-9">Number Of Users remaining</label>
+																<div class="col-sm-3">		{{company.company_settings.REMAINING_USER}}2
+																</div>
+															</div>
+														</div>
+														<div>
+															<div class="form-group col-md-6">
+																<label class="col-sm-9">Upcoming Invoice date</label>
+																<div class="col-sm-3">		{{company.next_invoice_date}}MAR/05/2017
+																</div>
+															</div>
+
+														</div>
+													</div>
+													</form>
+														<!--	//	End form	-->
+													</div>
+														<!--	//	End box-primary	-->
+													</div>
+														<!--	//	End items_wrap	-->
+												</div>
+													<!-- End Second	-->
+											</div>
+										</div>
+											<!--	// End Marchant-Account		-->
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+    
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+
+</div>
+
+
+
+

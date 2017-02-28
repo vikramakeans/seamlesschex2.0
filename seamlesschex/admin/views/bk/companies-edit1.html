@@ -1,0 +1,44 @@
+<div class="col-sm-12 row-no-padding">
+	<div class="well">
+	
+		<!-- Header Start-->
+		
+		<div ng-include="'views/common/header.html'"></div>
+		
+		<!-- Header End-->
+		
+		<!-- Full body content Start-->
+		
+		<div class="col-sm-12 row-no-padding body-content">
+			
+			<!-- Left Sidebar Start-->
+			
+			<div ng-include="'views/common/sidebar-left.html'"></div>
+			
+			<!-- Left Sidebar End-->
+			
+			<!-- Right Sidebar Start-->
+			<div class="col-sm-9 right-sidebar pull-left">
+				<h3>Company Edit</h3>
+				
+				{{ sc_token }}
+				
+				<div class="alert alert-danger" ng-if="user.error">
+					<strong>There was an error: </strong> {{user.error.error}}
+					<br>Please go back and login again
+				</div>
+			</div>
+			<!-- Right Sidebar End-->
+			
+		</div>
+		
+		<!-- Full body content End-->
+		
+		<!-- Footer Start-->
+		
+		<div ng-include="'views/common/footer.html'"></div>
+		
+		<!-- Footer End-->
+		
+	</div>
+</div>

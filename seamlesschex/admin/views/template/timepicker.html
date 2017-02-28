@@ -1,0 +1,16 @@
+  <script type="text/ng-template" id="timepicker.html">
+
+    <div class="timepicker">
+      <label>{{ labelText }}</label><br>
+      <input type="text" ng-model="theTime"
+             time-input render-on-blur render-on-enter>
+      <div ng-show="showingChoiceList" class="timepicker-dropdown" ng-cloak>
+        <div ng-repeat="time in choiceTimes" class="item" id="d{{ time | dateToTimestamp }}"
+              ng-click="setTime(time)" ng-class="{ selected: isSelectedTime(time) }">
+          {{ time | date:"shortTime" }}
+        </div>
+      </div>
+    </div>
+
+  </script>
+  

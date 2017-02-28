@@ -1,0 +1,110 @@
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Companies
+      </h1>
+      <ol class="breadcrumb">
+        <li class="active">Companies</li>
+      </ol>
+	</section>
+
+    <!-- Main content -->
+    <section class="content">
+      
+        <div class="row">
+			<div class="col-xs-12">
+			  <div class="box">
+				<div class="box-header">
+				  <h3 class="box-title">Companies</h3>
+
+				  <div class="box-tools">
+					<div class="input-group input-group-sm" style="width: 150px;">
+					  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+					  <div class="input-group-btn">
+						<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+					  </div>
+					</div>
+				  </div>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body table-responsive no-padding">
+					<div style="visibility: hidden">
+					  <div class="md-dialog-container" id="myStaticDialogComapny">
+						<md-dialog>
+						  This is a pre-rendered dialog.
+						</md-dialog>
+					  </div>
+					</div>
+				  <table class="table table-hover" ng-if="companyuser.users" >
+					<tr>
+					  <th>ID</th>
+					  <th width="100">Action</th>
+					  <th>Company name</th>
+					  <th>Contact name</th>
+					  <th>Company admin</th>
+					  <th>Plan</th>
+					  <th>TC</th>
+					  <th>RC</th>
+					  <th>TFC</th>
+					  <th>RFC</th>
+					</tr>
+					<tr ng-repeat="user in companyuser.users " ng-animate="'animate'">
+					  <td>{{$index + 1}}</td>
+					  <td>
+						<a ui-sref="company-edit({ sc_token: user.sc_token })" ><i class="fa fa-edit"></i></a> &nbsp;
+						<a><span class="ghost" ng-click="ghostEnable(user.sc_token)" ><i class="fa fa-user"></i></span></a>&nbsp;
+						<a><span class="delete" ng-click="deleteCompany($event, user.sc_token)"><i class="fa fa-close"></i></a></span></a>&nbsp;
+						<a ui-sref="user-permissions({ sc_token: user.sc_token })"><i class="fa fa-eye"></i></a>&nbsp;
+					  </td>
+					  <td>{{user.name}}</td>
+					  <td>{{user.cname}}</td>
+					  <td>{{user.email}}</td>
+					  <td>{{user.stripe_plan}} (${{user.amount}})</td>
+					  
+					  <td ng-if="user.company_settings === false">0</td>
+					  <td ng-if="user.company_settings !== false">{{user.company_settings.TOTALNOCHECK}}</td>
+					  
+					  <td ng-if="user.company_settings === false">0</td>
+					  <td ng-if="user.company_settings !== false">{{user.company_settings.NOOFCHECKREMAINING}}</td>
+					  
+					  <td ng-if="user.company_settings === false">0</td>
+					  <td ng-if="user.company_settings !== false">{{user.company_settings.TOTALFUNDCONFIRMATION}}</td>
+					  
+					  <td ng-if="user.company_settings === false">0</td>
+					  <td ng-if="user.company_settings !== false">{{user.company_settings.REMAININGFUNDCONFIRMATION}}</td>
+					</tr>
+					
+				  </table>
+				</div>
+				<!-- /.box-body -->
+			  </div>
+			  <!-- /.box -->
+			</div>
+		  </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          Footer
+        </div>
+        <!-- /.box-footer-->
+     
+
+    </section>
+    
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

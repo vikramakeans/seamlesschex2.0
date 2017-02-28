@@ -1,0 +1,135 @@
+<!-- Content Wrapper. Contains page content -->
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>
+			Plan
+		</h1>
+		<ol class="breadcrumb">
+			<li class="active" ng-if="action === 'addPlanDetails'">plan-new</li>
+			<li class="active" ng-if="action === 'editPlanDetails'">plan-edit</li>
+		</ol>
+	</section>
+
+	<!-- Main content -->
+	<section class="content">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="">
+					<div class="nav-tabs-custom" ng-controller="MultiStepFormController as companyAdmin">
+						<ul class="nav nav-tabs">
+							<li class="active" ng-class="">
+							  <a href="javascript:void(0)" >Plan</a>
+							</li>
+						</ul>
+						<div class="col-md-12 tab-content">
+							
+							<div class="box box-info">
+								<div ng-switch on="selection">
+									<!-- First -->
+									<div ng-switch-when="Company Details" >
+										<form class="form-horizontal">
+											<div class="box-header">
+												 <p class="alert alert-success" ng-if="plandetails.plandetailsSuccess"><strong>Success:</strong> {{plandetails.plandetailsSuccessText}}</p>
+												 <p class="alert alert-danger" ng-if="plandetails.plandetailsError"><strong>Error:</strong> {{plandetails.plandetailsErrorText}}</p>
+											</div>
+											<div class="box-body">
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserPlan Name3">Plan Name</label>
+													<div class="col-sm-4">
+														<input id="inputuserPlan Name3" class="form-control" type="text" placeholder="Plan Name" ng-model="plandetails.plan_name"  />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserPlan Name In Stripe3">Plan Name In Stripe</label>
+													<div class="col-sm-4">
+														<input id="inputuserPlan Name In Stripe3" class="form-control" type="text" placeholder="Plan Name In Stripe" ng-model="plandetails.plan_name_in_stripe"   />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserAmount3">Amount</label>
+													<div class="col-sm-4">
+														<input id="inputuserAmount3" class="form-control" type="text" placeholder="Amount" ng-model="plandetails.amount"   />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserNo Of Check3">No Of Check</label>
+													<div class="col-sm-4">
+														<input id="inputuserNo Of Check3" class="form-control" type="text" placeholder="No Of Check" ng-model="plandetails.no_of_check"   />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserNo Of Users3">No Of Users</label>
+													<div class="col-sm-4">
+														<input id="" class="form-control" type="text" placeholder="No Of Users" ng-model="plandetails.no_of_users"   />	
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserNo Of Companies3">No Of Companies</label>
+													<div class="col-sm-4">
+														<input id="" class="form-control" type="text" placeholder="No Of Companies" ng-model="plandetails.no_of_companies"   />	
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserSettings3">Settings</label>
+													<!--{{company.company_settings}}-->
+													<div class="checkbox">
+														<label>
+															<!--<md-checkbox ng-model="company.company_settings.COMPANY" aria-label="Company" ng-init="data.cb4=true" ng-checked="company.company_settings.COMPANY === 'yes'" ng-true-value="'yes'" ng-false-value="'no'" /> Company </md-checkbox>-->
+															<md-checkbox ng-model="plandetails.COMPANY" aria-label="Company" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" />Company</md-checkbox>
+														</label>
+														<label>
+															<!--<input type="checkbox" ng-model="company.company_settings.FUNDCONFIRMATION" ng-checked="company.company_settings.FUNDCONFIRMATION === 'yes'" ng-true-value="'yes'" ng-false-value="'no'" />FundConfirmation-->
+															<md-checkbox ng-model="plandetails.FUNDCONFIRMATION" aria-label="Fund Confirmation" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" />Fund Confirmation</md-checkbox>
+														</label>
+														<label>
+															<!--<input type="checkbox" ng-model="company.company_settings.SIGNTURE" ng-checked="company.company_settings.SIGNTURE === 'yes'" ng-true-value="'yes'" ng-false-value="'no'" />Signture-->
+															<md-checkbox ng-model="plandetails.SIGNTURE" aria-label="Signture" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" />Signture</md-checkbox>
+														</label>
+														<label>
+															<!--<input type="checkbox" ng-model="company.company_settings.CHECKOUTLINK" ng-checked="company.company_settings.CHECKOUTLINK === 'yes'" ng-true-value="'yes'" ng-false-value="'no'" />Payment Link-->
+															<md-checkbox ng-model="plandetails.CHECKOUTLINK" aria-label="Checkout Link" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" />Payment Link</md-checkbox>
+														</label>
+														<label>
+															<!--<input type="checkbox" ng-model="company.company_settings.BANKAUTHLINK" ng-checked="company.company_settings.BANKAUTHLINK === 'yes'" ng-true-value="'yes'" ng-false-value="'no'" />Bank Pay Auth-->
+															<md-checkbox ng-model="plandetails.BANKAUTHLINK" aria-label="Bank Auth Link" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" />Bank Auth Link</md-checkbox>
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="box-footer">
+												<div class="row">
+													<div class="col-sm-offset-2 col-sm-6">
+														<button class="btn btn-default" type="submit">Cancel</button>
+														<button class="btn btn-info" type="submit" ng-click="updatePlanDetails()" ng-if="action === 'editPlanDetails'">Update</button>
+														<button class="btn btn-info" type="submit" ng-click="addPlanDetails()" ng-if="action === 'addPlanDetails'">Save</button>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="alert alert-danger" ng-if="user.error">
+								<strong>There was an error: </strong> {{user.error.error}}
+								<br>Please go back and login again
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+</div>
+

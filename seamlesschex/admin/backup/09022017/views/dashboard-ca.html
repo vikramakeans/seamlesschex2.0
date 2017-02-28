@@ -1,0 +1,215 @@
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+
+<!-- Full body content Start-->
+
+<!-- Right Sidebar Start-->
+<!-- Full body content Start-->
+
+<!-- Right Sidebar Start-->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Dashboard
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><i class="fa fa-dollar"></i> 150</h3>
+
+              <p>Total Volume</p>
+            </div>
+           
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><i class="fa fa-dollar"></i> 53</h3>
+
+              <p>Total Last Batch</p>
+            </div>
+            
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3><i class="fa fa-dollar"></i> 44</h3>
+
+              <p>Total Next Batch</p>
+            </div>
+            
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3><i class="fa fa-dollar"></i> 65</h3>
+
+              <p>Total Sent</p>
+            </div>
+            
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <!-- /.row -->
+      <!-- Main row -->
+      <div class="row">
+			<div class="col-xs-12">
+			  <div class="box box-solid box-default">
+				<div class="box-header">
+				
+				  <!-- <h3 class="box-title">Invoice</h3> 
+				     Select All -->
+					<div><label>RECENT ACTIVITY</label>
+						<span ng-click="downloadMultipleInvoice(invoice)" class="btn" title="Export CSV"><i class="fa fa-cloud-download"></i></span>
+					</div>
+					<div ng-show="loader.loading" class="btn btn-success">Downloading...
+			        <i class="fa fa-spinner fa-spin"></i>
+			        </div>
+				  <div class="box-tools">
+
+					<div class="input-group input-group-sm" style="width: 150px;">
+						<input type="text" ng-model="searchText.$" class="form-control pull-right" placeholder="Search">
+					</div>
+				  </div>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body table-responsive no-padding">
+					<div style="visibility: hidden">
+					  <div class="md-dialog-container" id="myStaticDialog">
+						<md-dialog>
+						  This is a pre-rendered dialog.
+						</md-dialog>
+					  </div>
+					</div>
+				  <table class="table table-hover table-striped th-color">
+
+					<tr>
+					<th></th>	
+					  <th>NUMBER</th>
+					  <th>TYPE</th>
+					  <th>
+						<a href="javascript:void(0);" ng-click="sortBy('username')">ADDRESS
+						  <span class="sortorder" ng-show="propertyName === 'email'" ng-class="{reverse: reverse}"></span>
+						  </a>
+					  </th>
+					  <th width="120">
+						<a href="javascript:void(0);" ng-click="sortBy('amount')">AMOUNT
+						  <span class="sortorder" ng-show="propertyName === 'amount'" ng-class="{reverse: reverse}"></span>
+						</a>
+					  </th>
+					  
+					  <th width="110">
+						<a href="javascript:void(0);" ng-click="sortBy('status')">STATUS
+						<span class="sortorder" ng-show="propertyName === 'status'" ng-class="{reverse: reverse}"></span>
+					  </a>
+					  </th>
+					  
+					  <th>
+						
+					  </th>
+					</tr>
+					<tr>
+
+						<td class="box-tool-open">
+							<span><i class="fa fa-plus-square-o" style="cursor: pointer;"></i></span>
+						</td>
+				  		<td>{{$index + 1}}</td>
+				  		<td>
+							 Invoice
+				  		</td>
+
+				  		<td>{{invoice.email}}ealbert@gmail.com</td>
+
+				  		<td>{{invoice.amount}}$150</td>
+				  		<td>{{invoice.status}}Unpaid</td>
+				  		<td><a><span class="delete md-primary md-raised" ng-click="deleteScxAdmin($event, admin.sc_token)"><i class="fa fa-close"><md-tooltip md-direction="top">Delete</md-tooltip></i></span></a></td>
+				  		
+				  </tr>
+				  <tr  class="Activity-Description" style="display: none;">
+				  	<td style="background-color: transparent; border:0 none;"></td>
+				  	<td colspan="3" style="background-color: transparent; border:0 none;">
+				  		<div>
+							<label>Name:</label> Jom Robert<br>
+							<label>Date:</label> 30/01/2017<br>
+							<label>Description:</label> tester<br>
+							<label>Received Date:</label>
+						</div>
+				  	</td>
+				  	<td style="background-color: transparent; border:0 none;"></td>
+				  </tr>
+				  </table>
+				  <span us-spinner=""></span>
+				</div>
+				<!-- /.box-body -->
+			  </div>
+			  <!-- /.box -->
+			</div>
+        <!-- /.box-body -->
+        
+    <!-- /.content -->
+	<div class="alert alert-danger" ng-if="user.error">
+		<strong>There was an error: </strong> {{user.error.error}}
+		<br>Please go back and login again
+	</div>
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+  </div>
+<!-- Right Sidebar End-->
+</section>
+<!-- Full body content End-->
+</div>
+
+
+<script>
+	$(document).ready(function(){
+		$(".box-tool-open .fa").click(function(){
+			$(".Activity-Description").toggle();
+		});
+	});
+	$(document).ready(function(){
+		$(".box-tool-open .fa-plus-square-o").click(function(){
+			$(this).toggleClass("fa-plus-square-o");
+			$(this).addClass("fa-minus-square-o");
+		});
+		$(".box-tool-open .fa-minus-square-o").click(function(){
+			$(this).removeClass("fa-minus-square-o");
+		});
+	});
+	
+	
+</script>	

@@ -1,0 +1,1014 @@
+
+.container {
+    width: 100%;
+	padding:0px;
+}
+.row-no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+.well{
+	float:left;
+	width:100%;
+}
+.form-group.credit-card {
+    position: relative;
+}
+.card-images {
+    background-image: url("../images/cards.png");
+    background-position: 39px center;
+    background-size: 315px auto;
+    height: 25px;
+    margin-top: 5px;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    width: 40px;
+    z-index: 102;
+}
+.form-horizontal .card-images {
+	right: 15px;
+}
+.card-images.visa{
+	background-position: -127px center;
+}
+.card-images.mastercard{
+	background-position: -80px center;
+}
+.card-images.amex{
+	background-position: 0px center;
+}
+.card-images.diners{
+	background-position: -165px center;
+}
+.card-images.discover{
+	background-position: -39px center;
+}
+.card-images.jcb{
+	background-position: -204px center;
+}
+
+.animate-enter, 
+.animate-leave
+{ 
+    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space:nowrap;
+} 
+ 
+.animate-leave.animate-leave-active,
+.animate-enter {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+}
+ 
+.animate-enter.animate-enter-active, 
+.animate-leave {
+    opacity: 1;
+    width: 150px;
+    height: 30px;
+}
+
+span.ghost, span.delete{
+	cursor:pointer;
+}	
+a.md-default-theme:not(.md-button), a:not(.md-button) {
+    color: #3c8dbc;
+}
+md-checkbox:last-of-type {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* Editor styling */
+
+.ta-toolbar {
+	background-color: #F0F0F0;
+	padding: 10px 10px 5px;
+	margin-left: 0px; /* Override bootstrap */
+	border: 1px solid #EEE;
+}
+
+.ta-toolbar .btn-group {
+	margin-bottom: 5px;
+}
+
+.ta-editor, .white-box {
+	padding: 10px;
+	background-color: #FFF;
+	border: 1px solid #EEE;
+}
+
+textarea.ta-bind {
+	width: 100%;
+	min-height: 200px;
+}
+
+/*sidebar menu animation*/
+
+.ng-hide-add, .ng-hide-remove {
+    display: block !important; 
+}
+.treeview-menu  {
+    transition: .5s linear all;
+    max-height: 200px;
+    overflow: hidden;
+}
+.treeview-menu.ng-hide {
+    max-height:0;
+}
+/* Subscription */
+.cardDetails {
+	padding-left: 0px; 
+	margin-left: 0px; 
+	text-align: left; 
+	width: auto; 
+	padding-right: 0px;
+}
+.cardDetailsOverride{
+	width:47%;
+}
+.compAdminCardDetails{
+	margin-top:-15px;
+}
+.content md-input-container{
+	margin-bottom:0px;
+	margin-top:0px;
+	height:20px;
+	padding-top:0px;
+	padding-bottom:0px;
+}
+.content md-input-container input[type="search"] {
+	width:250px;
+	border:1px solid #ccc;
+}
+md-input-container ._md-placeholder, md-input-container label:not(.md-no-float):not(._md-container-ignore){
+	left:5px;
+}
+.enter-Check input#inputName3, .enter-Check input#inputPhone3, .enter-Check input#inputEmail3, .enter-Check input#inputAddress3, .enter-Check input#inputCity3, .enter-Check input#inputState3, .enter-Check input#inputPin3, .enter-Check input#inputPay13, .enter-Check input#inputPay23
+{
+    display:none;
+    
+}
+.status-label{
+	padding:5px;
+	text-align:center;
+}
+.drop-up, .sortorder.reverse{
+	background-image:url("../images/sort_asc.png");
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	padding:6px 10px;
+}
+.drop-down, .sortorder{
+	background-image:url("../images/sort_desc.png");
+	background-repeat:no-repeat;
+	background-position:center top;
+	padding:3px 10px;
+}
+.drop-defult{
+	background-image:url("../images/sort_both.png");
+	background-repeat:no-repeat;
+	background-position:center top;
+	padding:5px 10px;
+}
+ .sortorder.ng-hide{
+	background-image:url("../images/sort_both.png");
+	background-repeat:no-repeat;
+	background-position:center top;
+	padding:8px 10px;	
+	display: inline-block !important;
+}
+
+/*  manoj edited css  */
+
+/* header */
+.main-header{
+	background-color: #3c8dbc;
+	position: fixed;
+    width: 100%;
+	top: 0;	
+}
+.content-wrapper{
+	margin-top: 50px;	
+}
+.skin-blue .main-header .navbar {
+    background-color: transparent;
+}
+.main-header .navbar{
+	margin-left: 0;		
+}
+.main-header .logo{
+	position: absolute;
+    left: 42px;	
+	width: 187px;
+}
+.sidebar-mini.sidebar-collapse .main-header .logo {
+    width: 187px;
+}
+.sidebar-mini.sidebar-collapse .main-header .navbar {
+    margin-left: 0;
+}
+/* End header */
+.form-control{
+	border-radius: 3px;
+	
+}
+.btn.btn-flat{
+	border-radius: 4px;
+}
+img{
+	max-width:100%;
+}
+.login-box-body{
+	border-top: 2px solid;
+	
+}
+/*.box-footer{
+	background-color: #ecf0f5;
+}*/
+.btn-info{
+	margin-left: 5px;
+}
+.input-group-addon {
+  min-width: 44px;
+  padding: 8px 5px;
+}
+.input-group .input-group-addon{
+	border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.enter-Check .form-group .input-group-addon label{
+	margin-bottom:0;	
+}
+.check-wrapper{
+	padding-bottom:20px;	
+}
+.inner-check-wrapper{
+	background-image: url("../images/blank_check_large.png");
+	background-position:center center;
+	background-size:825px auto;
+	background-repeat:no-repeat;
+    height:400px;
+    width: 830px;
+	position:relative;	
+}
+
+.inner-check-wrapper > div{
+	position:absolute;
+	z-index:1;	
+}
+.inner-check-wrapper .UserNameDiv{
+	left: 2.7em;
+    top: 2.5em;
+    width: 300px;
+}
+.inner-check-wrapper .UserEmailDiv{
+	left: 2.7em;
+    top: 4.2em;
+    width: 300px;
+}
+.inner-check-wrapper .UserAddressDiv{
+	left: 2.7em;
+    top: 5.9em;
+    width: 300px;
+}
+.inner-check-wrapper .CityNameDiv{
+	left: 2.7em;
+    top: 7.6em;
+    width: 300px;
+}
+/*.inner-check-wrapper .StateNameDiv{
+	left: 10em;
+    top: 7.6em;
+    width: 100px;
+}
+.inner-check-wrapper .ZipCodeDiv{
+	left: 17.3em;
+    top: 7.6em;
+    width: 100px;
+}*/
+
+.inner-check-wrapper .CompanyNameDiv{
+	top:10.5em;
+	left:10em;	
+	width: 380px;
+}
+
+.inner-check-wrapper .DescriptionDiv{
+	top:21em;
+	left:6em;	
+	width: 300px;
+}
+.inner-check-wrapper .amountInWords{
+	left: 2.7em;
+    text-align: left;
+    top: 14em;
+    width: 590px;
+	text-transform: capitalize;
+}
+.inner-check-wrapper .custom-authorization{
+	left: 2.7em;
+    text-align: left;
+    top: 17em;
+    width: 500px;
+	 
+}
+.inner-check-wrapper .UserSignatureDiv{
+	left: 31em;
+    top: 21em;
+    width: 360px;
+}
+ .WithoutSignatureDiv{
+	left: 31em;
+    top: 16.5em;
+    width: 360px;	
+}
+.WithoutSignatureDiv > p{
+	line-height: 15px;
+    text-align: left;	
+}
+.inner-check-wrapper .UserSignatureDiv > input{
+	text-align: center;	
+	
+}
+
+.inner-check-wrapper .CheckNumberDiv {
+  right: 2.5em;
+  top: 3.3em;
+  background-color: #dcf1f6;
+  height: 25px;
+  width: 140px;
+}
+.inner-check-wrapper .CheckAmountDiv {
+  right: 2.7em;
+  top: 10.8em;
+  width: 137px;
+}
+
+.inner-check-wrapper .RoutingDiv {
+  bottom: 2.9em;
+  left: 4.5em;
+  width: 150px;
+  background-color: #dcf1f6;
+}
+.inner-check-wrapper .CheckingAccountDiv {
+  bottom: 2.9em;
+  left: 16.2em;
+  width: 185px;
+  background-color: #dcf1f6;
+}
+.inner-check-wrapper .ConfirmAccountDiv {
+  bottom: 2.9em;
+  left: 32em;
+  width: 175px;
+  background-color: #dcf1f6;
+}
+.inner-check-wrapper .RoutingInfoUserNameDiv {
+  left: 25em;
+  text-align: center;
+  top: 2.5em;
+  width: 200px;
+}
+.inner-check-wrapper .RoutingInfoAddressDiv {
+  left: 25em;
+  text-align: center;
+  top: 4.1em;
+  width: 200px;
+}
+.inner-check-wrapper .RoutingInfoZipDiv {
+  left: 25em;
+  text-align: center;
+  top: 5.6em;
+  width: 200px;
+}
+.inner-check-wrapper .RoutingInfoStatePhoneDiv {
+  left: 25em;
+  text-align: center;
+  top: 7.1em;
+  width: 200px;
+}
+.inner-check-wrapper .EnterCheckDateDiv {
+  left: 41.5em;
+  text-align: right;
+  top:  6.8em;
+  width: 100px;
+}
+.inner-check-wrapper .RoutingInfoUserNameDiv > input, .inner-check-wrapper .RoutingInfoAddressDiv > input, .inner-check-wrapper .RoutingInfoZipDiv > input, .inner-check-wrapper .RoutingInfoStatePhoneDiv > input, .inner-check-wrapper .CheckNumberDiv > input{
+	text-align:center;	
+}
+.inner-check-wrapper .EnterCheckDateDiv > input{
+	text-align:right;	
+}
+
+.inner-check-wrapper > div input{
+	width:100%;	
+	background-color: transparent;
+	border: 0 none;
+}
+
+.bank-auther-link .signature-checkbox{
+	width:100%;
+}
+.bank-auther-link .signature-checkbox md-checkbox{
+	margin: 0;
+}
+.bank-auther-link .signature-checkbox md-checkbox ._md-label{
+	margin-left: 0;	
+}
+.bank-auther-link .signature-checkbox md-checkbox ._md-container{
+	left: 105%;	
+}
+.mandatory-fields{
+	position:relative;	
+}
+.mandatory-fields:after{
+	position:absolute;
+	content: '*';
+    color: red;
+    top: -0.5em;
+    z-index: 10;
+    left: 12px;
+    font-size: 1.6em;
+    font-family: Helvetica;
+    font-weight: bold;	
+}
+select.form-control{
+	background-image: url("../images/updown-arrow.gif");
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    position: relative;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;	
+}
+
+.regester-form{
+	background-image: url("../images/form-background.png");
+	background-repeat:repeat;	
+}
+.regester-form md-checkbox{
+	margin:0;
+}
+.regester-form md-checkbox > ._md-label{
+	margin-left:0;
+}
+.regester-form md-checkbox ._md-container{
+	top: 15px;	
+}
+/* View Print Check  */
+.view-print-check .form-group i.fa-calendar-check-o{
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	cursor: pointer;
+}
+.view-print-check button.btn{
+	float:right;	
+}
+/* End View Print Check  */
+
+/* Setting  */
+	.content-header .page-heading{
+		margin-bottom: 20px;
+	}
+	.add-new-btn > a{
+		color:#fff;
+		width:100px;	
+	}
+	.content-header > .breadcrumb{
+			
+	}
+
+/* End Setting  */
+.select2-container.form-control{
+	background-image: url("../images/updown-arrow.gif");
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    position: relative;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;	
+}
+.select2-container .select2-choice{
+	background-color: transparent;
+	line-height: 32px;	
+}
+.select2-container.form-control .select2-choice:hover{
+	color:#555555;	
+}
+
+/* Edit for relocation of Back TO Admin button */
+.main-header .btn.btn-primary{
+	padding-top:0px;
+	padding-bottom:0px;
+	margin: 5px;
+	position: relative;
+    top: -30px;
+	left: -40px;
+}
+.ghost-login .main-header {
+  padding-top: 30px;
+}
+.ghost-login .main-sidebar{
+	padding-top: 80px;	
+}
+.ghost-login .content-wrapper {
+  margin-top: 80px;
+}
+
+/* End Edit for relocation of Back TO Admin button */
+/*	Check Out Page: */
+
+.Check-Out .inner-check-wrapper .UserNameDiv {
+  left: 2.7em;
+  top: 2.5em;
+  width: 300px;
+}
+.Check-Out .inner-check-wrapper .UserAddressDiv {
+  left: 2.7em;
+  top: 4.3em;
+  width: 300px;
+}
+.Check-Out .inner-check-wrapper .CityNameDiv {
+  left: 2.7em;
+  top: 6.1em;
+  width: 300px;
+}
+.Check-Out .inner-check-wrapper .StateNameDiv {
+	left: 12.2em;
+	top: 6.1em;
+	width: 130px;
+}
+.Check-Out .inner-check-wrapper .ZipNameDiv {
+	left: 21.65em;
+	top: 6.1em;
+	width: 130px;
+}
+/*.Check-Out .inner-check-wrapper .UserPhoneDiv {
+  left: 2.7em;
+  top: 7.85em;
+  width: 130px;
+}
+.Check-Out .inner-check-wrapper .CompanyNameDiv {
+  left: 10em;
+  top: 10.5em;
+  width: 380px;
+} */
+
+
+/* End	Check Out Page: */
+
+/* Batchs Page: */
+.Imported-Check .form-group i.fa-calendar-check-o {
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 10px;
+}
+.box.batch {
+  min-height: 580px;
+}
+.search_details .table{
+	margin-bottom:0;	
+}
+.search_details .table th{
+	width: 10em;	
+}
+.fileUpload .upload{
+	cursor: pointer;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+	filter: alpha(opacity=0);	
+}
+.fileUpload.btn{
+	margin-left: 5px;	
+}
+#uploadFile{
+	background-color: transparent;
+    border: 0 none;	
+}
+
+/* End	Batchs Page: */
+
+
+
+table.search_checks md-checkbox ._md-icon {
+  height: 15px;
+  width: 15px;
+}
+table.search_checks md-checkbox.md-checked ._md-icon::after {
+  left: 4.67px;
+  top: 0.22px;
+}
+table.search_checks md-checkbox:last-of-type {
+  margin: 2px 10px 0;
+}
+.processedWaterMark{
+	color: #ccc;
+    font-size: 8em;
+    position: relative;
+    top: -290px;
+    transform: rotate(-15deg);	
+	z-index: 1;
+}
+.box.Export_Checks{
+	min-height:475px;	
+}
+
+/*  End manoj edited css  */
+
+@media only screen and (max-width:1090px){
+/*  Printcheck responsive  */
+	.inner-check-wrapper{
+		background-size: 730px auto;
+		width: 730px;
+		height: 340px;	
+	}
+	.inner-check-wrapper .UserNameDiv {
+	  left: 2.3em;
+	  top: 1.5em;
+	  width: 280px;
+	}
+	.inner-check-wrapper .UserEmailDiv {
+	  left: 2.3em;
+	  top: 2.9em;
+	  width: 280px;
+	}
+	.inner-check-wrapper .UserAddressDiv {
+	  left: 2.3em;
+	  top: 4.2em;
+	  width: 280px;
+	}
+	.inner-check-wrapper .CityNameDiv {
+	  left: 2.3em;
+	  top: 5.6em;
+	  width: 280px;
+	}
+	.inner-check-wrapper .CompanyNameDiv {
+	  left: 8em;
+	  top: 9em;
+	  width: 380px;
+	}
+	.inner-check-wrapper .amountInWords {
+	  left: 2.3em;
+	  top: 11.8em;
+	  width: 540px;
+	}
+	.inner-check-wrapper .custom-authorization {
+	  left: 2.3em;
+	  top: 14em;
+	  width: 500px;
+	}
+	.inner-check-wrapper .RoutingInfoUserNameDiv {
+	  left: 23em;
+	  top: 1.5em;
+	}
+	.inner-check-wrapper .RoutingInfoAddressDiv {
+	  left: 23em;
+	  top: 2.9em;
+	}
+	.inner-check-wrapper .RoutingInfoZipDiv{
+		left: 23em;
+	  	top: 4.2em;	
+	}
+	.inner-check-wrapper .RoutingInfoStatePhoneDiv{
+		left: 23em;
+	  	top: 5.6em;	
+	}
+	.inner-check-wrapper .EnterCheckDateDiv {
+	  left: 36em;
+	  top: 5.5em;
+	}
+	.inner-check-wrapper .CheckNumberDiv {
+	  top: 2.3em;
+	}
+	.inner-check-wrapper .CheckAmountDiv {
+	  right: 2.3em;
+	  top: 9.1em;
+	  width: 120px;
+	}
+	.inner-check-wrapper .RoutingDiv {
+	  bottom: 2.1em;
+	  left: 4em;
+	  width: 130px;
+	}
+	.inner-check-wrapper .CheckingAccountDiv {
+	  bottom: 2.1em;
+	  left: 14.2em;
+	  width: 160px;
+	}
+	.inner-check-wrapper .ConfirmAccountDiv {
+	  bottom: 2.1em;
+	  left: 28em;
+	  width: 175px;
+	}
+	.WithoutSignatureDiv {
+	  font-size: 12px;
+	  left: 32em;
+	  top: 16em;
+	  width: 324px;
+	}
+	.inner-check-wrapper .DescriptionDiv {
+	  left: 5em;
+	  top: 18.2em;
+	  width: 250px;
+	}
+	
+	.Check-Out .inner-check-wrapper .UserNameDiv{
+		left: 2.3em;
+		top: 1.5em;
+		width: 280px;	
+	}
+	.Check-Out .inner-check-wrapper .UserAddressDiv {
+	  left: 2.3em;
+	  top: 2.9em;
+	  width: 280px;
+	}
+	.Check-Out .inner-check-wrapper .CityNameDiv {
+	  left: 2.3em;
+	  top: 4.2em;
+	  width: 280px;
+	}
+	.inner-check-wrapper .UserSignatureDiv {
+	  left: 27em;
+	  top: 18em;
+	  width: 320px;
+	}
+/* End  Printcheck responsive  */
+}
+@media only screen and (max-width:991px){
+/* Subscriptions */
+	.form-horizontal .AddSubscriptions .tab-text-left {
+    	text-align: left;
+	}
+/* End Subscriptions */
+/*  Printcheck responsive  */
+	.inner-check-wrapper {
+	  background-size: 500px auto;
+	  height: 250px;
+	  width: 500px;
+	  font-size: 11px;
+	}
+	.inner-check-wrapper .UserNameDiv, .inner-check-wrapper .UserEmailDiv, .inner-check-wrapper .UserAddressDiv, .inner-check-wrapper .CityNameDiv {
+	  left: 1.8em;
+	  width: 200px;
+	}
+	.inner-check-wrapper .UserNameDiv{
+		top: 2.1em;	
+	}
+	.inner-check-wrapper .UserEmailDiv {
+	  top: 3.2em;
+	}
+	.inner-check-wrapper .UserAddressDiv {
+	  top: 4.5em;
+	}
+	.inner-check-wrapper .CityNameDiv {
+	  top: 5.8em;
+	}
+	.inner-check-wrapper .CheckNumberDiv {
+	  line-height: 20px;
+	  top: 2.5em;
+	  height: 20px;
+      right: 2em;
+	  width: 100px;
+	}
+	.inner-check-wrapper .CheckAmountDiv {
+	  right: 2em;
+	  top: 8.6em;
+	  width: 82px;
+	}
+	.inner-check-wrapper .EnterCheckDateDiv {
+	  left: 28.4em;
+	  top: 5.3em;
+	}
+	.inner-check-wrapper .CompanyNameDiv {
+	  left: 7em;
+	  top: 8.5em;
+	  width: 295px;
+	}
+	.inner-check-wrapper .DescriptionDiv {
+	  left: 4em;
+	  top: 16.5em;
+	  width: 185px;
+	}
+	
+	.inner-check-wrapper .amountInWords {
+	  left: 2em;
+	  top: 11em;
+	  width: 365px;
+	}
+	.inner-check-wrapper .custom-authorization {
+	  left: 2em;
+	  top: 13em;
+	  width: 250px;
+	}
+	.inner-check-wrapper .RoutingDiv {
+	  bottom: 2.4em;
+	  left: 3.4em;
+	  width: 91px;
+	}
+	.inner-check-wrapper .CheckingAccountDiv {
+	  bottom: 2.4em;
+	  left: 12.5em;
+	  width: 110px;
+	}
+	.inner-check-wrapper .ConfirmAccountDiv {
+	  bottom: 2.4em;
+	  left: 24em;
+	  width: 175px;
+	}
+	.inner-check-wrapper .RoutingInfoUserNameDiv, .inner-check-wrapper .RoutingInfoStatePhoneDiv, .inner-check-wrapper .RoutingInfoAddressDiv, .inner-check-wrapper .RoutingInfoZipDiv {
+	  left: 18em;
+	  width: 170px;
+	}
+	.inner-check-wrapper .RoutingInfoUserNameDiv{
+		top: 2.1em;	
+	}
+	.inner-check-wrapper .RoutingInfoAddressDiv {
+	  top: 3.1em;
+	}
+	.inner-check-wrapper .RoutingInfoZipDiv {
+	  top: 4.2em;
+	}
+	.inner-check-wrapper .RoutingInfoStatePhoneDiv {
+	  top: 5.3em;
+	}
+	.WithoutSignatureDiv {
+	  font-size: 9px;
+	  left: 29em;
+	  top: 15.8em;
+	  width: 220px;
+	}
+	.WithoutSignatureDiv > p {
+	  line-height: 10px;
+	}
+	.inner-check-wrapper .UserSignatureDiv {
+	  left: 24em;
+	  top: 16.5em;
+	  width: 215px;
+	}
+	.Check-Out .inner-check-wrapper .UserNameDiv, .Check-Out .inner-check-wrapper .UserAddressDiv, .Check-Out .inner-check-wrapper .CityNameDiv {
+	  left: 1.8em;
+	  width: 200px;
+	}
+	.Check-Out .inner-check-wrapper .UserNameDiv{
+		top: 2.1em;	
+	}
+	.Check-Out .inner-check-wrapper .UserAddressDiv{
+		top: 3.2em;	
+	}
+	.Check-Out .inner-check-wrapper .CityNameDiv{
+		top: 4.5em;	
+	}
+	.processedWaterMark {
+	  font-size: 5em;
+	  top: -180px;
+	}
+
+/* End  Printcheck responsive  */
+}
+
+@media only screen and (max-width:767px){
+/* Bank Auther Link */
+	.bank-auther-link .signature-checkbox > md-checkbox{
+		text-align: left;	
+	}
+	.bank-auther-link .signature-checkbox md-checkbox ._md-container {
+  		left: 150px;
+	}
+/* End Bank Auther Link */
+}
+
+@media only screen and (max-width:530px){
+/*  Printcheck responsive  */
+	.content, .well{
+		padding-left:0;
+		padding-right:0;	
+	}
+	.inner-check-wrapper {
+	  background-size: 320px auto;
+	  font-size: 8px;
+	  height: 165px;
+	  width: 320px;
+	  letter-spacing: 0.2px;
+	}
+	.inner-check-wrapper > div input {
+	  letter-spacing: 0.2px;
+	}
+	.inner-check-wrapper .UserNameDiv {
+	  top: 2em;
+	}
+	.inner-check-wrapper .CompanyNameDiv {
+	  left: 6em;
+	  top: 7.5em;
+	  width: 185px;
+	}
+	.inner-check-wrapper .DescriptionDiv {
+	  left: 4em;
+	  top: 14.4em;
+	  width: 115px;
+	}
+	
+	.inner-check-wrapper .amountInWords {
+	  left: 1.8em;
+	  top: 9.9em;
+	  width: 238px;
+	}
+	.inner-check-wrapper .custom-authorization {
+	  left: 1.8em;
+	  top: 11.5em;
+	  width: 170px;
+	}
+	.inner-check-wrapper .EnterCheckDateDiv {
+	  left: 23em;
+	  top: 4.9em;
+	  width: 80px;
+	}
+	.inner-check-wrapper .CheckAmountDiv {
+	  right: 1.8em;
+	  top: 7.8em;
+	  width: 52px;
+	}
+	.inner-check-wrapper .RoutingDiv {
+	  left: 3em;
+	  width: 57px;
+	}
+	.inner-check-wrapper .CheckingAccountDiv {
+	  left: 11em;
+	  width: 70px;
+	}
+	.inner-check-wrapper .ConfirmAccountDiv {
+	  left: 22em;
+	  width: 70px;
+	}
+	.inner-check-wrapper .UserSignatureDiv {
+	  left: 21em;
+	  top: 14em;
+	  width: 140px;
+	}
+	.inner-check-wrapper .UserNameDiv, .inner-check-wrapper .UserEmailDiv, .inner-check-wrapper .UserAddressDiv, .inner-check-wrapper .CityNameDiv {
+	  left: 1.8em;
+	  width: 135px;
+	}
+	.inner-check-wrapper .CheckNumberDiv {
+	  right: 1.5em;
+	  width: 55px;
+	}
+	.inner-check-wrapper .RoutingInfoStatePhoneDiv {
+	  top: 6.3em;
+	}
+	.inner-check-wrapper .RoutingInfoZipDiv {
+	  top: 4em;
+	}
+	.inner-check-wrapper .RoutingInfoAddressDiv {
+	  top: 3em;
+	}
+	.inner-check-wrapper .RoutingInfoUserNameDiv {
+	  top: 2em;
+	}
+	.inner-check-wrapper .RoutingInfoUserNameDiv, .inner-check-wrapper .RoutingInfoStatePhoneDiv, .inner-check-wrapper .RoutingInfoAddressDiv, .inner-check-wrapper .RoutingInfoZipDiv {
+	  left: 18em;
+	  width: 115px;
+	}
+	.WithoutSignatureDiv {
+	  font-size: 6px;
+	  left: 25.8em;
+	  top: 15.8em;
+	  width: 158px;
+	}
+	.WithoutSignatureDiv > p {
+	  line-height: 6px;
+	}
+	.Check-Out .inner-check-wrapper .UserNameDiv, .Check-Out .inner-check-wrapper .UserAddressDiv, .Check-Out .inner-check-wrapper .CityNameDiv {
+	  left: 1.8em;
+	  width: 140px;
+	}
+	.Check-Out .inner-check-wrapper .CityNameDiv {
+	  top: 4.9em;
+	}
+	.Check-Out .inner-check-wrapper .UserAddressDiv {
+	  top: 3.5em;
+	}
+	.processedWaterMark {
+	  font-size: 4em;
+	  top: -128px;
+	}
+	
+/* End  Printcheck responsive  */		
+}
+
+/* Custom select */
+
+

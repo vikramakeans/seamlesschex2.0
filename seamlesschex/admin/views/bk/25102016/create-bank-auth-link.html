@@ -1,0 +1,102 @@
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Create Bank Auth Link
+      </h1>
+      <ol class="breadcrumb">
+        <li class="active">create-bank-auth</li>
+      </ol>
+	</section>
+
+    <!-- Main content -->
+    <section class="content">
+      
+        <div class="row">
+			<div class="col-xs-12">
+			  <div class="box">
+				<div class="box-header with-border">
+				  <h3 class="box-title">Create Bank Auth Link</h3>
+				 </div>
+                 <form class="form-horizontal" role="form">
+                 	<div class="box-body bank-auther-link">
+                    	<div class="form-group">
+                            <label class="col-xs-12 col-sm-5 col-md-4 control-label" for="">Create Bank Auth Link
+Enter $ amount </label>
+                            <div class="col-xs-12 col-sm-4 col-md-3">
+                                <input id="" class="form-control" type="text" placeholder="Enter Amount" ng-model="bankauthLink.amount">
+                            </div>
+                        </div>
+                        	<!-- / .form-group -->
+                        <div class="form-group">
+                                <label class="signature-checkbox">
+                                    <md-checkbox ng-model="bankauthLink.REQUIRESIGNATURE" aria-label="Require Signature" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" role="checkbox" class="ng-valid md-checked ng-not-empty ng-dirty ng-valid-parse ng-touched col-xs-12 col-sm-5 col-md-4 text-right" tabindex="0" aria-checked="true" aria-invalid="false" style="">
+                                    	<div class="_md-label"><span class="ng-scope">Require Signature</span></div>
+                                        
+                                    </md-checkbox>
+                                </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-5 col-md-4 control-label" for="">Memo</label>
+                            <div class="col-xs-12 col-sm-4 col-md-3">
+                                <input id="" class="form-control" type="text" placeholder="Enter Memo" ng-model="bankauthLink.memo">
+                            </div>
+                        </div>
+                        	<!-- / .form-group -->
+                    	<div class="form-group">
+                            <label class="col-xs-12 col-sm-5 col-md-4 control-label" for="">Select Company</label>
+                            <div class="col-xs-12 col-sm-4 col-md-3">
+                                <select class="form-control" ng-model="bankauthLink.company_admin">
+                                    <option value="">Company Name </option>
+                                    <option value="">x </option>
+                                    <option value="">y </option>
+                                    <option value=""> z</option>
+                                </select>
+                            </div>
+                        </div>
+                        	<!-- / .form-group -->
+                        <div class="">
+                        	<div class="form-group">
+                                <label class="col-xs-12 col-sm-5 col-md-4 control-label" for=""></label>
+                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                    <button type="submit" class="btn btn-primary" ng-click="generateBankAuthLink()">Click to Generate Link</button>
+                                </div>
+                            </div>
+                        	<div class="form-group">
+                                <label class="col-xs-12 col-sm-5 col-md-4 control-label" for="">Copy and paste payment link and send to customer via email or embed into your website </label>
+                                <div class="col-xs-9 col-sm-5 col-md-6">
+                                    <input id="generateUrl" class="form-control" type="text" placeholder="Please generate your auth pay url" ng-model="bankauthLink.bankLinkUrl" ng-click="selectAllContent($event)" >
+                                </div>
+                                <button ng-model="copyButton" clipboard supported="supported" text="bankauthLink.bankLinkUrl" on-copied="success()" on-error="fail(err)" class="btn btn-primary">{{copyButton}}</button>
+                            </div>
+                        	<!-- / .form-group -->
+                        </div>
+                    </div>
+                    	<!-- / .box-body -->
+                 </form>
+                 
+			  </div>
+			  <!-- /.box -->
+			</div>
+		  </div>
+        <!-- /.box-body -->
+    </section>
+    
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+

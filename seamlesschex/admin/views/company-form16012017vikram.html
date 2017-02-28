@@ -1,0 +1,812 @@
+<!-- Content Wrapper. Contains page content -->
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1 ng-if="action === 'addCompanyAdmin'"> Add New Merchant </h1>
+      <h1 ng-if="action === 'editCompanyAdmin'"> Edit Merchant </h1>
+      <ol class="breadcrumb">
+        <li class="active" ng-if="action === 'editCompanyAdmin'">company-edit</li>
+        <li class="active" ng-if="action === 'addCompanyAdmin'">company-new</li>
+      </ol>
+	</section>
+
+    <!-- Main content -->
+	<section class="content">
+		  
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="">
+					
+					<div class="nav-tabs-custom">
+						<ul class="nav nav-tabs">
+							<li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
+							  <a href="javascript:void(0)" ng-click="goToStep($index)"><span class="tabNumber">{{$index + 1}} </span><span class="tabName">{{step}}</span></a>
+							</li>
+						</ul>
+							
+								<div class="col-md-12 tab-content" >
+									<form class="form-horizontal">
+										<div class="box box-info">
+											<div ng-switch on="selection">
+												
+												<!-- First -->
+												<div ng-switch-when="Company Details" >
+													<div class="box-header with-border">
+														<h3 class="box-title">Company Details</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													<div class="box-body">
+														<div class="checkbox">
+															<label>
+																<md-checkbox ng-model="company.mailchimp" aria-label="Mailchimp" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" >Mailchimp Update</md-checkbox>
+															</label>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="inputBusinessName3">Business Name</label>
+															<div class="col-sm-6">
+																<input id="inputBusinessName3" class="form-control" type="text" placeholder="Business Name" ng-model="company.name"  />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">Contact name</label>
+															<div class="col-sm-6">
+																<input id="inputContactName3" class="form-control" type="text" placeholder="Contact name" ng-model="company.cname"  />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">Company email</label>
+															<div class="col-sm-6">
+																<input id="inputCompanyEmail3" class="form-control" type="text" placeholder="Company email" ng-model="company.email"  />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">Password</label>
+															<div class="col-sm-6">
+																<input id="inputCompanyEmail3" class="form-control" type="password" placeholder="Password must be at least 8 characters" ng-model="company.password"  />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">Website</label>
+															<div class="col-sm-6">
+																<input id="inputWebsite3" class="form-control" type="url" placeholder="Website name" ng-model="company.website" required pattern="https?://.+" />
+															</div>
+														</div>
+                                                        <div class="form-group">
+															<label class="col-sm-2 control-label" for="">Tax ID</label>
+															<div class="col-sm-6">
+																<input id="inputTaxID3" class="form-control" type="text" placeholder="Tax ID" ng-model="company.taxid"  />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">Address</label>
+															<div class="col-sm-6">
+															  <input id="inputAddress3" class="form-control" type="text" placeholder="Address" ng-model="company.saddress"   />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">City</label>
+															<div class="col-sm-6">
+																<input id="inputCity3" class="form-control" type="text" placeholder="City" ng-model="company.city"   />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">State</label>
+															<div class="col-sm-6">
+																<input id="inputState3" class="form-control" type="text" placeholder="State" ng-model="company.state"   />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">Zip</label>
+															<div class="col-sm-6">
+																<input id="inputZip3" class="form-control" type="text" placeholder="Zip" ng-model="company.zip"  />
+															</div>
+														</div>
+														
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">Business Type</label>
+															<div class="col-sm-6">
+																<select ng-model="company.business_type" class="form-control">
+																	<option value="">Industry Type</option>
+																	<option value="Auto">Auto</option>
+																	<option value="Collections">Collections</option>
+																	<option value="Computer Support">Computer Support</option>
+																	<option value="Finance">Finance</option>
+																	<option value="Insurance">Insurance</option>
+																	<option value="Legal">Legal</option>
+																	<option value="Manufacturing / Supplier">Manufacturing / Supplier</option>
+																	<option value="Medical">Medical</option>
+																	<option value="Moving / Transportation">Moving / Transportation</option>
+																	<option value="Professional Services">Professional Services</option>
+																	<option value="Real Estate">Real Estate</option>
+																	<option value="Web Development">Web Development</option>
+																	<option value="Other">Other</option>
+																</select>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">Phone Number</label>
+															<div class="col-sm-6">
+																<input id="inputPhoneNumber3" class="form-control" type="text" placeholder="Phone Number" ng-model="company.phone"  value="{{company.phone}}" />
+															</div>
+														</div>
+														
+													</div>
+													
+													<div class="box-footer col-sm-12" ng-if="action === 'editCompanyAdmin'">
+														<div class="row">
+																<div class="col-sm-offset-4 col-sm-6">
+																	<button class="btn btn-default" type="submit">Cancel</button>
+																	<button class="btn btn-info" type="submit" ng-click="companyDetails()" >Submit</button>
+																</div>
+														</div>
+													</div>
+
+												</div>
+
+												<!-- Second -->
+												<div ng-switch-when="Bank Details">
+													<div class="box-header with-border">
+														<h3 class="box-title">Bank Details</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													<div class="box-body">
+														<div class="form-group">
+															<label class="col-sm-4 control-label" for="">Bank name</label>
+															<div class="col-sm-3">
+																<input id="inputBankname3" class="form-control" type="text" placeholder="Bank name" ng-model="company.bank_name"   />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-4 control-label" for="">Routing</label>
+															<div class="col-sm-3">
+															  <input id="inputRouting3" class="form-control" type="text" placeholder="Routing" ng-model="company.bank_routing"   />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-4 control-label" for="">Bank account number</label>
+															<div class="col-sm-3">
+																<input id="inputBankaccountnumber3" class="form-control" type="text" placeholder="Bank account number" ng-model="company.bank_account_no"   />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-4 control-label" for="">Authorised signer</label>
+															<div class="col-sm-3">
+																<input id="inputAuthorisedsigner3" class="form-control" type="text" placeholder="Authorised signer" ng-model="company.authorised_signer"   />
+															</div>
+														</div>
+														
+													</div>
+													<div class="box-footer col-sm-12" ng-if="action === 'editCompanyAdmin'">
+														<div class="row">
+															<div class="col-sm-offset-4 col-sm-6">
+																<button class="btn btn-default" type="submit">Cancel</button>
+																<button class="btn btn-info" type="submit" ng-click="bankDetails()">Submit</button>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<!-- Third -->
+												<div ng-switch-when="Fee Settings" >
+													<div class="box-header with-border">
+														<h3 class="box-title">Fee Settings</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													<div class="box-body">
+														<div class="form-group">
+														  <label class="col-sm-4 control-label" for="inputCheckVerificationfee3">Check Verification fee</label>
+														  <div class="col-sm-2" ng-if="company.fee.CHECK_VERIFICATION_FEE === '' || company.fee.CHECK_VERIFICATION_FEE === undefined">
+															  <input id= "inputCheckVerificationfee3" class="form-control" type="text" placeholder="Check Verification fee" ng-model="company.fee.CHECK_VERIFICATION_FEE" />
+														  </div>
+														  <div class="col-sm-2" ng-if="company.fee.CHECK_VERIFICATION_FEE !== '' || company.fee.CHECK_VERIFICATION_FEE !== undefined">
+															  <input id= "inputCheckVerificationfee3" class="form-control" type="text" placeholder="Check Verification fee" ng-model="company.fee.CHECK_VERIFICATION_FEE"   />
+														  </div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-4 control-label" for="inputCheckVerificationfeep3">Check Processing fee(%)</label>
+															<div class="col-sm-2">
+																<input id="inputCheckProcessingfee(%)" class="form-control" type="text" placeholder="Check Processing fee(%)" ng-model="company.fee.CHECK_PROCESSING_FEE"   />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-4 control-label" for="inputPerCheckfee3">Per Check fee</label>
+															<div class="col-sm-2">
+																<input id="inputPerCheckfee3" class="form-control" type="text" placeholder="Per Check fee" ng-model="company.fee.PER_CHECK_FEE"   />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-4 control-label" for="inputDailyDepositFee3">Daily Deposit Fee</label>
+															<div class="col-sm-2">
+																<input id="" class="form-control" type="text" placeholder="Daily Deposit Fee" ng-model="company.fee.DAILY_DEPOSIT_FEE"   />
+															</div>
+														</div>
+														
+													</div>
+													<div class="box-footer col-sm-12" ng-if="action === 'editCompanyAdmin'">
+														<div class="row">
+															<div class="col-sm-offset-4 col-sm-6">
+																<button class="btn btn-default" type="submit">Cancel</button>
+																<button class="btn btn-info" type="submit" ng-click="feeSettings()">Submit</button>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- Four -->
+												<div ng-switch-when="Plan Details" >
+                                                    <div class="box-header with-border">
+                                                        <h3 class="box-title">Plan Details</h3>
+                                                    </div>
+                                                    <div class="box-header">
+                                                         <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+                                                         <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+                                                    </div>
+                                                    <div class="box-body">{{company.stripe_plan}}
+                                                        <h3 class="box-title" ng-if="!company.stripe_plan">{{company.stripe_plan}} - {{company.status}}</h3>
+                                                    <div class="form-horizontal">
+                                                        <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="form-group col-xs-12 col-sm-6 col-md-7" ng-if="company.all_plan">
+                                                                <label class="col-xs-12 col-sm-6 col-md-5 control-label" for="selectPlanType3">Plan Type</label>
+                                                                <div class="col-xs-12 col-sm-6 col-md-7" >
+                                                                    <select ng-model="company.stripe_plan" class="form-control" >
+                                                                            <option value="">Select Plan</option>
+                                                                            <option ng-selected="{{plan.plan_id == company.stripe_plan}}" ng-repeat="plan in company.all_plan" value="{{plan.plan_id}}">{{plan.plan_name}} (${{plan.amount}})</option>
+                                                                      </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-xs-12 col-sm-6 col-md-4" ng-if="company.all_plan">
+                                                                <label class="col-xs-12 col-sm-6 col-md-4 control-label" for="inputTrial3">Status</label>
+                                                                <div class="col-xs-12 col-sm-6 col-md-8">
+                                                                    <select ng-model="company.status" class="form-control">
+                                                                        <option value="">- Select Status -</option>
+                                                                        <option ng-selected="{{status === company.status}}" ng-repeat="status in statuses" value="{{status}}">{{status}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                             <!--{{company.company_settings}}-->
+                                                            
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                                                	<div class="col-xs-12 col-sm-12 col-md-1"></div>
+                                                                    <label class="col-xs-12 col-sm-12 col-md-10">
+                                                                        Basic Verification
+                                                                    </label>
+                                                                </div>
+                                                                
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputTotalChecks3">Total Checks</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                        <input id="inputTotalChecks3" class="form-control" type="text" placeholder="Total Checks" ng-model="company.company_settings.TOTALNOCHECK"   />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputRemaining3">Remaining Checks</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                        <input id="inputRemaining3" class="form-control" type="text" placeholder="Remaining Checks" ng-model="company.company_settings.NOOFCHECKREMAINING"   />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="checkbox col-xs-12 col-sm-6 col-md-3">
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4" ng-if="action === 'editCompanyAdmin'">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputTrial3">Trial Date</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                        <input id="inputTrial3" class="form-control" type="text" placeholder="Trial" ng-model="company.trial_ends_at" datetime-picker date-format="yyyy-MM-dd HH:mm:ss" size="30"  />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4" ng-if="action === 'editCompanyAdmin'">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputSubscriptionEnd3">Subscription End Date</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                        <input id="inputSubscriptionEnd3" class="form-control" type="text" placeholder="Subscription End" ng-model="company.subscription_ends_at" datetime-picker date-format="yyyy-MM-dd HH:mm:ss" size="30"  />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="checkbox col-xs-12 col-sm-6 col-md-3">
+                                                                    <label>
+                                                                        <md-checkbox ng-model="company.company_settings.FUNDCONFIRMATION" aria-label="Fund Confirmation" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" >Fund Confirmation</md-checkbox>
+                                                                    </label>
+                                                                </div>
+                                                                
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputTFC3">Total Fund Confirmation</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                        <input id="inputTrial3" class="form-control" type="text" placeholder="Total Fund Confirmation" ng-model="company.company_settings.TOTALFUNDCONFIRMATION"   />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputRFC3">Remaining Fund Confirmation</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                        <input id="inputRFC3" class="form-control" type="text" placeholder="Remaining Fund Confirmation" ng-model="company.company_settings.REMAININGFUNDCONFIRMATION"   />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="checkbox col-xs-12 col-sm-6 col-md-3">
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-6 control-label" for="inputFundStartDate3">Start Date</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                        <input id="inputFundStartDate3" class="form-control" type="text" placeholder="DD/MM/YY" ng-model="company.company_settings.FUNDCONFIRMATION_START_DATE"  ng-readonly="true" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-6 control-label" for="inputFundEndDate3">End Date</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                        <input id="inputFundEndDate3" class="form-control" type="text" placeholder="DD/MM/YY" ng-model="company.company_settings.FUNDCONFIRMATION_END_DATE"  ng-readonly="true" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="checkbox col-xs-12 col-sm-6 col-md-3">
+                                                                    <label>
+                                                                        <md-checkbox ng-model="company.company_settings.BANKAUTHLINK" aria-label="Bank Auth Link" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" >Bank Auth Link</md-checkbox>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputTPAuth3">Total Bank Pay Auth</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                        <input id="inputTPAuth3" class="form-control" type="text" placeholder="Total Bank Pay Auth" ng-model="company.company_settings.TOTALPAYAUTH"   />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputPAuthR3">Remaining Bank Pay Auth</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                        <input id="inputPAuthR3" class="form-control" type="text" placeholder="Remaining Bank Pay Auth" ng-model="company.company_settings.PAYAUTHREMAINING"   />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="checkbox col-xs-12 col-sm-6 col-md-3"></div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-6 control-label" for="inputBankAuthStartDate3">Start Date</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                        <input id="inputBankAuthStartDate3" class="form-control" type="text" placeholder="DD/MM/YY" ng-model="company.company_settings.BANKAUTHLINK_START_DATE" ng-readonly="true"  />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-6 control-label" for="inputBankAuthEndDate3">End Date</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                        <input id="inputBankAuthEndDate3" class="form-control" type="text" placeholder="DD/MM/YY" ng-model="company.company_settings.BANKAUTHLINK_END_DATE"  ng-readonly="true" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="checkbox col-xs-12 col-sm-6 col-md-3">
+                                                                    <label>
+                                                                    <md-checkbox ng-model="company.company_settings.SIGNTURE" aria-label="Signture" ng-init="" ng-true-value="'yes'" ng-false-value="'no'">Signture</md-checkbox>
+                                                                    </label>
+                                                                </div>
+                                                                
+                                                                <div class="checkbox col-xs-12 col-sm-6 col-md-3">
+                                                                    <label>
+                                                                        <md-checkbox ng-model="company.company_settings.CHECKOUTLINK" aria-label="Checkout Link" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" >Payment Link</md-checkbox>
+                                                                    </label>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="checkbox col-xs-12 col-sm-6 col-md-3">
+                                                                    <label>
+                                                                        <md-checkbox ng-model="company.company_settings.COMPANY" aria-label="Company" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" >Sub-accounts</md-checkbox>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputTotalUser3">Total Number of User</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                        <input id="inputTotalUser3" class="form-control" type="text" placeholder="Number of User" ng-model="company.company_settings.TOTAL_USER"   />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputRemainingUser3">Remaining User</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                        <input id="inputRemainingUser3" class="form-control" type="text" placeholder="Remaining User" ng-model="company.company_settings.REMAINING_USER"   />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="checkbox col-xs-12 col-sm-6 col-md-3">
+                                                                    <label></label>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputTotalUser3">Total Number of sub-accounts</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                        <input id="inputTotalCompany3" class="form-control" type="text" placeholder="Number of Company" ng-model="company.company_settings.TOTAL_COMPANY"   />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                    <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputRemainingCompany3">Remaining sub-accounts</label>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                        <input id="inputRemainingCompany3" class="form-control" type="text" placeholder="Remaining Company" ng-model="company.company_settings.REMAINING_COMPANY"   />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                            <!-- .form-group -->
+                                                        <div class="form-group">
+                                                        <div class="row">
+                                                        	<div class="checkbox col-xs-12 col-sm-6 col-md-3">
+                                                                    <label></label>
+                                                            </div>	
+                                                            <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputCheckMonthlyFee3">Monthly Fee</label>
+                                                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                    <input id="inputCheckMonthlyFee3" class="form-control" type="text" placeholder="FundConfirmation Fee" ng-model="company.fee.MONTHLY_FEE"   />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                                                                <label class="col-xs-12 col-sm-6 col-md-8 control-label" for="inputCheckfundVerificationfee3">FundConfirmation Fee</label>
+                                                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                                                    <input id="inputCheckfundVerificationfee3" class="form-control" type="text" placeholder="FundConfirmation Fee" ng-model="company.fee.FUNDCONFIRMATION_FEE"   />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                        <!-- .box-body -->
+                                                    <div class="box-footer col-sm-12" ng-if="action === 'editCompanyAdmin'">
+                                                        <div class="row">
+                                                            <div class="col-sm-offset-4 col-sm-6">
+                                                                <button class="btn btn-default" type="submit">Cancel</button>
+                                                                <button class="btn btn-info" type="submit" ng-click="planDetails()">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+												<!-- Five -->
+												<div ng-switch-when="Credit Card" >
+													<div class="box-header with-border">
+														<h3 class="box-title">Credit Card</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													<div class="box-body">
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">Card Number</label>
+															<div class="col-sm-4" ng-model="company" validate-card>
+															  <input id="inputcardNumber3" class="form-control" type="text" placeholder="Card Number" ng-model="company.number" ng-change="checkEmpty(company)" format-card   />
+															  <div id="card-images" class="card-images {{company.type}}"></div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">Month</label>
+															<div class="col-sm-2">
+															  <input id="inputMonth3" class="form-control" type="text" placeholder="MM" ng-model="company.exp_month" size="2" maxlength="2" />
+															  
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">Year</label>
+															<div class="col-sm-2">
+															  <input id="inputYear3" class="form-control" type="text" placeholder="YYYY" ng-model="company.exp_year" size="4" maxlength="4"  />
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="">CVC</label>
+															<div class="col-sm-2">
+															  <input id="inputCvc3" class="form-control" type="text" placeholder="CVC" ng-model="company.cvc" maxlength="10" size="4"  />
+															</div>
+														</div>
+														
+													</div>
+													<div class="box-footer col-sm-12" ng-if="action === 'editCompanyAdmin'">
+														<div class="row">
+															<div class="col-sm-offset-4 col-sm-6">
+																<button class="btn btn-default" type="submit">Cancel</button>
+																<button class="btn btn-info" type="submit" ng-click="creditCardDetails()">Submit</button>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- Six -->
+												<div ng-switch-when="Permissions" >
+													<div class="box-header with-border">
+														<h3 class="box-title">Permissions</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													<h4 class="box-header with-border">Company Check Permissions - LINK</h4>
+													<div class="box-body">
+														<div class="form-group">
+															 
+															<div  class="permission-wrapper" ng-repeat="setting in company.default_settings">
+																
+																<div class="col-sm-4 control-label"  ng-if="setting.permission_type == 'LINK'"> 
+																	<div class="col-sm-2" >
+																		
+																		<input  class="" type="checkbox" ng-model="company.settings[setting.permission_name]"  ng-checked="company.user_settings.{{setting.permission_name}} === 'yes'"  ng-true-value="'yes'" ng-false-value="'no'"  ng-value="[setting.permission_value]"/>
+																	</div>
+																	<label class="col-sm-6 text-left" >			{{setting.permission_label}}
+																	</label>
+																</div>
+																
+															</div>
+															
+															<!--{{company.settings}}-->
+															
+														</div>
+														
+														
+													</div>
+													
+													<h4 class="box-header with-border">Company Check Permissions - Button</h4>
+													<div class="box-body">
+														<div class="form-group">
+															<div class="permission-wrapper" ng-repeat="setting in company.default_settings">
+																
+																<div class="col-sm-4 control-label"  ng-if="setting.permission_type == 'BUTTON'"> 
+																	<div class="col-sm-2" >
+																		
+																		<input  class="" type="checkbox" ng-model="company.settings[setting.permission_name]"  ng-checked="company.user_settings.{{setting.permission_name}} === 'yes'"  ng-true-value="'yes'" ng-false-value="'no'"  ng-value="[setting.permission_value]"/>
+																	</div>
+																	<label class="col-sm-6 text-left" >			{{setting.permission_label}}
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="box-footer col-sm-12" ng-if="action === 'editCompanyAdmin'">
+														<div class="row">
+															<div class="col-sm-offset-4 col-sm-6">
+																<button class="btn btn-default" type="submit">Cancel</button>
+																<button class="btn btn-info" type="submit" ng-click="permissionSettings()">Submit</button>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- Seven Step -->
+												<div ng-switch-when="Processing Cutoff" >
+													<div class="box-header with-border">
+														<h3 class="box-title">Processing Cutoff</h3>
+													</div>
+													<div class="box-header">
+														 <p class="alert alert-success" ng-if="companySuccess"><strong>Success:</strong> {{companySuccessText}}</p>
+														 <p class="alert alert-danger" ng-if="companyError"><strong>Error:</strong> {{companyErrorText}}</p>
+													</div>
+													<div class="box-body">
+														{{company.check_cutoff_seetings["mon.time"]}}
+														{{company.check_cutoff_seetings["mon.timezone"]}}
+													<div class="row">
+										               <div class="form-group col-xs-12 col-sm-6 col-md-2">
+										                <label class="col-sm-2 control-label" for="inputMonday3">Monday</label>
+										               </div>
+										               <div class="form-group col-xs-12 col-sm-6 col-md-4">
+										                <label class="col-sm-2 control-label" for="inputTime3">Time</label>
+										                <div class="col-sm-8">
+										                <input ui-timepicker class="form-control" ng-model="company.monday" />
+										                </div>
+										               </div>
+										               <div class="form-group col-xs-12 col-sm-6 col-md-4">
+										                <label class="col-sm-4 control-label" for="inputTimeZone3">Time Zone</label>
+										                <div class="col-sm-8">
+										                <select name="timezone"  class="form-control"  ng-model="company.timezone.monday">
+														    <option>EST</option>
+														    <option>CST</option>
+														    <option>MST</option>
+														    <option>PST</option>
+														</select>
+										              <!--    <select ng-model="company.TimeZone" class="form-control">
+										                  <option value="">--Select--</option>
+										                 </select> -->
+										                </div>
+										               </div>
+													</div>
+												          <div class="row">
+												           <div class="form-group col-xs-12 col-sm-6 col-md-2">
+												            <label class="col-sm-2 control-label" for="inputTuesday3">Tuesday</label>
+												            <div class="col-sm-8">
+												             
+												            </div>
+												           </div>
+												           <div class="form-group col-xs-12 col-sm-6 col-md-4">
+												            <label class="col-sm-2 control-label" for="inputTime3">Time</label>
+												            <div class="col-sm-8">
+												            <input ui-timepicker  class="form-control"  ng-model="company.tuesday">
+												            <!--  <input id="inputTime3" class="form-control" type="text" placeholder="Time" ng-model="check.user.Time" name="name"  /> -->
+												            </div>
+												           </div>
+												           <div class="form-group col-xs-12 col-sm-6 col-md-4">
+												            <label class="col-sm-4 control-label" for="inputTimeZone3">Time Zone</label>
+												            <div class="col-sm-8">
+													        <select name="timezone" class="form-control" 
+													        ng-model="company.timezone.tuesday">
+															    <option>EST</option>
+															    <option>CST</option>
+															    <option>MST</option>
+															    <option>PST</option>
+															</select>
+												            </div>
+												           </div>
+												          </div>
+												              <div class="row">
+												               <div class="form-group col-xs-12 col-sm-6 col-md-2">
+												                <label class="col-sm-2 control-label" for="inputWednesday3">Wednesday</label>
+												                <div class="col-sm-8">
+												                 
+												                </div>
+												               </div>
+												               <div class="form-group col-xs-12 col-sm-6 col-md-4">
+												                <label class="col-sm-2 control-label" for="inputTime3">Time</label>
+												                <div class="col-sm-8">
+												                 <input  class="form-control"  ui-timepicker ng-model="company.wednesday">
+												                <!--  <input id="inputTime3" class="form-control" type="text" placeholder="Time" ng-model="check.user.Time" name="name"  /> -->
+												                </div>
+												               </div>
+												               <div class="form-group col-xs-12 col-sm-6 col-md-4">
+												                <label class="col-sm-4 control-label" for="inputTimeZone3">Time Zone</label>
+												                <div class="col-sm-8">
+												                <select name="timezone" class="form-control" ng-model="company.timezone.wednesday">
+															    <option>EST</option>
+															    <option>CST</option>
+															    <option>MST</option>
+															    <option>PST</option>
+															</select>
+												                </div>
+												               </div>
+												              </div>
+												              <div class="row">
+												               <div class="form-group col-xs-12 col-sm-6 col-md-2">
+												                <label class="col-sm-2 control-label" for="inputThursday3">Thursday</label>
+												                <div class="col-sm-8">
+												                 
+												                </div>
+												               </div>
+												               <div class="form-group col-xs-12 col-sm-6 col-md-4">
+												                <label class="col-sm-2 control-label" for="inputTime3">Time</label>
+												                <div class="col-sm-8">
+												                 <input class="form-control"  ui-timepicker ng-model="company.thursday">
+												              <!--    <input id="inputTime3" class="form-control" type="text" placeholder="Time" ng-model="check.user.Time" name="name"  /> -->
+												                </div>
+												               </div>
+												               <div class="form-group col-xs-12 col-sm-6 col-md-4">
+												                <label class="col-sm-4 control-label" for="inputTimeZone3">Time Zone</label>
+												                <div class="col-sm-8">
+												                 <select name="timezone" class="form-control" ng-model="company.timezone.thursday">
+																    <option>EST</option>
+																    <option>CST</option>
+																    <option>MST</option>
+																    <option>PST</option>
+															    </select>
+												                </div>
+												               </div>
+												              </div>
+													          <div class="row">
+													           <div class="form-group col-xs-12 col-sm-6 col-md-2">
+													            <label class="col-sm-2 control-label" for="inputFriday3">Friday</label>
+													            <div class="col-sm-8">
+													             
+													            </div>
+													           </div>
+													           <div class="form-group col-xs-12 col-sm-6 col-md-4">
+													            <label class="col-sm-2 control-label" for="inputTime3">Time</label>
+													            <div class="col-sm-8">
+													             <input class="form-control"  ui-timepicker ng-model="company.friday">
+													            <!--  <input id="inputTime3" class="form-control" type="text" placeholder="Time" ng-model="check.user.Time" name="name"  /> -->
+													            </div>
+													           </div>
+													           <div class="form-group col-xs-12 col-sm-6 col-md-4">
+													            <label class="col-sm-4 control-label" for="inputTimeZone3">Time Zone</label>
+													            <div class="col-sm-8">
+														         <select name="timezone" class="form-control" ng-model="company.timezone.friday">
+																    <option>EST</option>
+																    <option>CST</option>
+																    <option>MST</option>
+																    <option>PST</option>
+																</select>
+													            </div>
+													           </div>
+													          </div>
+										              <div class="row">
+										               <div class="form-group col-xs-12 col-sm-6 col-md-2">
+										                <label class="col-sm-2 control-label" for="inputSaturday3">Saturday</label>
+										                <div class="col-sm-8">
+										                 
+										                </div>
+										               </div>
+										               <div class="form-group col-xs-12 col-sm-6 col-md-4">
+										                <label class="col-sm-2 control-label" for="inputTime3">Time</label>
+										                <div class="col-sm-8">
+										                 <input class="form-control"  ui-timepicker ng-model="company.saturday">
+										                <!--  <input id="inputTime3" class="form-control" type="text" placeholder="Time" ng-model="check.user.Time" name="name"  /> -->
+										                </div>
+										               </div>
+										               <div class="form-group col-xs-12 col-sm-6 col-md-4">
+										                <label class="col-sm-4 control-label" for="inputTimeZone3">Time Zone</label>
+										                <div class="col-sm-8">
+										                 <select name="timezone" class="form-control" ng-model="company.timezone.saturday">
+																    <option>EST</option>
+																    <option>CST</option>
+																    <option>MST</option>
+																    <option>PST</option>
+															</select>
+										                </div>
+										               </div>
+										              </div>
+								              <div class="row">
+								               <div class="form-group col-xs-12 col-sm-6 col-md-2">
+								                <label class="col-sm-2 control-label" for="inputSunday3">Sunday</label>
+								                <div class="col-sm-8">
+								                 
+								                </div>
+								               </div>
+								               <div class="form-group col-xs-12 col-sm-6 col-md-4">
+								                <label class="col-sm-2 control-label" for="inputTime3">Time</label>
+								                <div class="col-sm-8">
+								                 <input ui-timepicker class="form-control" ng-model="company.sunday">
+								                 
+								                </div>
+								               </div>
+								               <div class="form-group col-xs-12 col-sm-6 col-md-4">
+								                <label class="col-sm-4 control-label" for="inputTimeZone3">Time Zone</label>
+								                <div class="col-sm-8">
+								                 <select name="timezone" class="form-control" ng-model="company.timezone.sunday">
+												    <option>EST</option>
+												    <option>CST</option>
+												    <option>MST</option>
+												    <option>PST</option>
+													</select>
+								                </div>
+								               </div>
+								              </div>
+											<div class="bs-example">
+            <!--<form class="form-horizontal" role="form" ng-controller="MultiStepFormController as multiStepFormController">
+                <input type="text" dn-timepicker="{{models.format}}" ng-model="models.time" min-time="{{models.minTime}}" max-time="{{models.maxTime}}" step="{{models.step}}" />
+            </form>-->
+        </div>
+													</div>
+												</div>
+												<div class="box-footer col-sm-12" ng-if="action === 'addCompanyAdmin'">
+													<div class="row">
+														<div class="col-sm-offset-4 col-sm-6">
+															
+															<button class="btn btn-default" ng-click="decrementStep()" type="submit">Previous</button>
+															<!--<button class="btn btn-default" type="submit">Skip</button>-->
+															<button class="btn btn-default col-xs-offset-3" ng-click="incrementStep()" type="submit">Next</button>
+															<button class="btn btn-default col-xs-offset-1" type="submit" ng-switch-when="Processing Cutoff">Cancel</button>
+															<button class="btn btn-info" type="submit" ng-switch-when="Processing Cutoff" ng-click="createCompany()">Submit</button>
+														</div>
+													</div>
+												</div>
+                                                	<!-- .box-footer -->
+											</div>
+										</div>
+                                        	<!-- .box -->
+									</form>
+								</div>
+                                	<!-- .tab-content -->
+						</div>
+                        	<!-- .nav-tabs-custom -->
+					</div>
+				</div>
+			</div>
+            	<!-- .row -->
+           </section>
+		</div>
+        	<!-- .content-wrapper -->
+    
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+
+
+

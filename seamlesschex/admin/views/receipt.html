@@ -1,0 +1,92 @@
+<!-- Content Wrapper. Contains page content -->
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Receipt
+      </h1>
+      <ol class="breadcrumb">
+        <li class="active">receipt</li>
+      </ol>
+	</section>
+
+    <!-- Main content -->
+	<section class="content" >
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="box">
+					<div class="box-header with-border receipt_header" >
+						<center>
+							<h3 class=""><span us-spinner=""></span> {{currencySign}} {{amount}} at Seamless Checks, LLC</h3>
+							<hr style="width: 25%;opacity:0.5 ">
+							<span us-spinner=""></span>
+							<div class="card-type" style="color: #fff"><span>{{card_type}}</span>	<span> {{last4}}</span></div>
+						</center>
+					</div>
+					<div class="box-body Reciept-table table ">
+						<table class="table">
+							<tbody>
+								<tr class="bg-light-blue">
+									<th style="border: 0 none;">{{date}}</th>
+									<th style="border: 0 none;">#2659-3479</th>
+								</tr>
+								<tr class=".Reciept_row_two">
+									<td>Description </td>
+									<td>Amount </td>
+								</tr>
+								<tr>
+									<td>Subscription to SeamlessChex Pro Plan </td>
+									<td>{{amount}} {{currencySign}} </td>
+								</tr>
+								<tr>
+									<td style="padding-left:15%" class="" >Total</td>
+									<td class="">{{amount}} {{currencySign}} </td>
+								</tr>
+								<tr>
+									<td style="padding-left:15%;font-weight:bold;font-size:15px;" class="" >Paid</td>
+									<td style="font-weight:bold;font-size:15px;" >{{amount}} {{currencySign}} </td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<div class="box-footer fotter text-center">
+
+			<p>
+				Have a question or need help? <a href="#">Send us an email</a> or <a href="tel:(888) 998-2439">give us a call at (888) 998-2439.</a>
+			</p>
+			<hr style="background-color: #eee; width: 35em; border-top: 1px solid #eee; opacity:0.5">	
+			<p >
+			You are receiving this email because you made a purchase at <a href="#">Seamless Checks, LLC.</a>
+			</p>
+			
+		     <p>
+				<button ng-click="downloadInvoice($event,stripe_id)"  class="btn btn-primary pull-right download-view-invoice" > Download</button>
+			</p> 
+			<p >
+			<span>
+			
+			<!-- <button class="btn btn-primary pull-right" type="button" ng-click="downloadInvoice(stripe_id)">Download</button> -->
+
+			</span></p>
+		</div>
+    </section>
+</div>
+	
+    
+<!-- Footer Start-->
+<div ng-include="'views/common/footer.html'"></div>
+<!-- Footer End-->
+
+
+

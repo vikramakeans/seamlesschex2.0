@@ -1,0 +1,63 @@
+<!-- Content Wrapper. Contains page content -->
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>
+			Search & Print Checks
+		</h1>
+			<ol class="breadcrumb">
+		<li class="active">view-print-check</li>
+		</ol>
+	</section>
+
+    <!-- Main content -->
+	<section class="content">
+		  
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="">
+
+					<div class="nav-tabs-custom" ng-controller="MultiStepFormController as companyAdmin">
+						<ul class="nav nav-tabs">
+						<li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
+						<a href="javascript:void(0)" ng-click="goToStep($index)"><span class="tabNumber">{{$index + 1}} </span><span class="tabName">{{step}}</span></a>
+						</li>
+						</ul>
+
+						<div class="col-md-12 tab-content">
+							<div class="box box-info">
+								<div ng-switch on="selection">
+									<!-- First -->
+									<div ng-switch-when="Entered checks" >
+											Entered checks form
+									</div>
+									<!-- Second -->
+									<div ng-switch-when="Recurring Payments" >
+											Recurring Payments form
+									</div>
+								</div>
+							</div>
+							<div class="alert alert-danger" ng-if="user.error">
+								<strong>There was an error: </strong> {{user.error.error}}
+								<br>Please go back and login again
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+
+</div>
+

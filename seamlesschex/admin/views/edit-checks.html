@@ -1,0 +1,177 @@
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1 class="page-heading" ng-if="action === 'editCheck'">
+        Edit Checks
+      </h1>
+      
+	  <ol class="breadcrumb">
+        <li class="active"></li>
+      </ol>
+	</section>
+
+    <!-- Main content -->
+    <section class="content">
+		<div class="row">
+			
+			
+		</div>
+        <div class="row">
+			<div class="col-xs-12">
+			  <div class="box box-primary">
+				<div class="box-header with-border">
+				  <h3 class="box-title" ng-if="action === 'editCheck'">Edit Checks</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-header">
+				 <flash-message>
+                        </flash-message>
+				<!-- 	 <p class="alert alert-success" ng-if="checkSuccess"><strong>Success:</strong> {{checkSuccessText}}</p>
+					 <p class="alert alert-danger" ng-if="checkError"><strong>Error:</strong> {{checkErrorText}}</p> -->
+					 <div ng-if="action === 'duplicateCheck'" class="form-group col-sm-6 col-md-6" >
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-institution"></i>
+                                <label>Pay to the order of:</label>
+                            </div>
+                            <select class="form-control" ng-model="check.companyadmin" ng-options="company.name for company in companyadmin track by company.mc_token"></select>
+                        </div>
+                 	</div>
+				 </div>
+				 
+
+				<div class="box-body table-responsive no-padding">
+					<form role="form" class="ng-pristine ng-valid">
+						<div class="box-body enter-Check">
+						   <div class="form-group col-sm-6 col-md-5">
+								<div class="input-group">
+									<div class="input-group-addon">
+										<i class="fa fa-envelope"></i>
+										<label for="inputEmail3">Email:</label>
+									</div>
+									<input type="text"  placeholder="email:" class="form-control" ng-model="check.email" />
+								</div>
+									<!-- /.input group -->
+							</div> 
+							<div class="form-group col-sm-6 col-md-7">
+								<div class="checkbox col-sm-6 col-md-5" style="margin-top: 5px;">
+								  <label>
+									<md-checkbox ng-model="check.payment" ng-click="showAdvanced($event);"  aria-label="Recurring Payments" ng-init="" ng-true-value="1" ng-false-value="0" >Recurring Payments</md-checkbox>
+								  </label>
+								</div>
+                           
+                            
+								 <div class="checkbox col-sm-6 col-md-5" style="margin-top: 5px;">
+
+								  <label>
+									<md-checkbox ng-model="check.verify_before_save"  ng-init="" ng-true-value="1" ng-false-value="0" >Verify Before Save</md-checkbox>
+								  </label>
+								 </div>
+                            
+								<div style="border-top: 0 none; margin-top: -10px;" class="box-footer col-sm-12 col-md-2">
+									<button ng-if="action === 'editCheck'" class="btn btn-primary pull-right" type="submit" ng-click="updateCheck()">Update</button>
+									<button ng-if="action === 'duplicateCheck'" class="btn btn-primary pull-right" type="submit" ng-click="saveCheck()">Save</button>
+								</div>
+                        	</div>
+						</div> 
+                   			<!-- /.box-body -->
+                    </form>
+					<div class="check-wrapper text-center">
+                    	<div class="inner-check-wrapper center-block">
+								<!-- <div class="RoutingInfoUserNameDiv">
+                                    <input type="text" class="routinginfo_name" ng-model="check.name">
+								</div>
+                                <div class="RoutingInfoAddressDiv">
+                                    <input type="text" class="routinginfo_address" ng-model="check.address">
+								</div>
+                                 <div class="RoutingInfoZipDiv">
+                                    <input type="text" class="routinginfo_zip" ng-model="check.zip"
+                                    >
+								</div> -->
+                               
+                        		<!-- <div class="RoutingInfoStatePhoneDiv">
+                                    <input type="text" class="routinginfo_phone" ng-model="check.state">
+								</div> -->
+								<div class="EnterCheckDateDiv">
+                                    <input type="text" class="Check_Date" disabled="disabled"  ng-model="check.date" " >
+								</div>
+                            	<div class="UserNameDiv">
+                                    <input type="text" class="User_Name"  ng-model="check.name">
+								</div>
+								<div class="UserEmailDiv">
+                                    <input type="text" class="User_Email" ng-model="check.email">
+								</div>
+								<div class="UserAddressDiv">
+                                    <input type="text" class="User_Address" ng-model="check.address">
+								</div>
+								<div class="CityNameDiv">
+                                    <input type="text" class="City_Name" ng-model="check.city" >
+                                     <input type="text" class="City_Name" ng-model="check.state">
+                                      <!-- <input type="text" class="City_Name"  restrict-input="^[0-9-]*$" maxlength="6" ng-model="check.zip"> -->
+								</div> 
+								
+								<div class="CompanyNameDiv">
+                                    <input type="text" class="companyname" value="{{check.to_name}}">
+								</div>
+                                <div class="DescriptionDiv">
+                                    <input type="text" class="Description" placeholder="memo" ng-model="check.memo1">
+								</div>
+								<div class="amountInWords">
+								Pay Exactly ${{pay_exactly}}  Dollars And Cents ///////
+								</div>
+                                <div class="custom-authorization">
+								Customer authorization obtained: {{check.authorisation_date}}
+								<!-- Customer authorization obtained:
+								<input type="text" class="Description Check_Date " ng-model="check.authorisation_date"> -->
+								</div>
+                                <div class="UserSignatureDiv">
+                                    <input type="text" class="User_Signature" disabled="disabled" value="{{check.name}}">
+								</div>
+                               <!--  <div class="WithoutSignatureDiv" ng-if="check.signature_not_required" ><strong>SIGNATURE NOT REQUIRED</strong><p>Payment has been authorized by the depositor.<br>Payee to hold you harmless for payment of this document.<br>This document shall be deposited only to credit of payee.<br>Absence of endorsement is guaranteed by payee's bank.</p>
+                                </div> -->
+                                <div class="CheckNumberDiv">
+                                    <input type="text" class="check-number" restrict-input="^[0-9-]*$"  placeholder="Check Number"  ng-model="check.check_number">
+								</div>
+                                <div class="CheckAmountDiv">
+                                    <input type="text" class="check-amount" restrict-input="^[0-9-]*$" ng-model="check.check_amount" ng-change="getNumberInWords(check.check_amount)">
+								</div>
+                                <div class="RoutingDiv">
+                                    <input type="text" class="check-routing"  restrict-input="^[0-9-]*$" placeholder="Routing Number #"  ng-model="check.routing_number" >
+								</div>
+                                <div class="CheckingAccountDiv">
+                                    <input type="text" class="checking-account"  restrict-input="^[0-9-]*$" placeholder="Account Number #" ng-model="check.account_number">
+								</div>
+                                <div class="ConfirmAccountDiv">
+                                    <input type="text" class="confirm-account" restrict-input="^[0-9-]*$" placeholder="Confirm Account Number #" ng-model="check.confirm_account_number" >
+								</div>
+                        </div>
+                    </div>
+                    	<!-- /.check-wrapper -->
+			  </div>
+			  <!-- /.box -->
+			</div>
+		  </div>
+        <!-- /.box-body -->
+        
+        <!-- /.box-footer-->
+		</div>
+    		<!-- /.row-->
+
+    </section>
+    
+	<!-- Footer Start-->
+	<div class="main-footer" ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

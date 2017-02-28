@@ -1,0 +1,258 @@
+function validateStep1() {
+				var name = $("#name").val();
+				var cname = $("#cname").val();
+				var email = $("#email").val();
+				var website = $("#website").val();
+				var custom_Company = $("#custom_Company").val();
+				var business_type = $("#business_type").val();
+				var saddress = $("#saddress").val();
+				var city = $("#city").val();
+				var state = $("#state").val();
+				var zip = $("#zip").val();
+				var ziplength = $("#zip").val().length;
+				
+				var password = $("#custom_Password").val();
+				var length = $("#custom_Password").val().length;
+				
+				
+				var custom_Password = $("#custom_Password").val();
+				
+				if(name == ''){
+					$(".error-message.name").css("display", "block");
+					$(".error-message.name").html("Enter Business Name!");
+					return false;
+				}else{
+					$(".error-message.name").css('display','none');
+					
+				}
+				//checkCName();
+				var values = cname.split(' ').filter(function(v){return v!==''});
+				if(cname == '' || values.length <= 1){
+					$(".error-message.cname").css("display", "block");  
+					$(".error-message.cname").html("Enter First and Last Name!");
+					return false;
+				}else{
+					$(".error-message.cname").css('display','none');
+				}
+				
+				
+				//emailValidation();
+				if(email == ''){
+					$(".error-message.email").css("display", "block"); 
+					$(".error-message.email").html("Enter Business Email!");
+					return false;
+					
+				}else if(email != ''){
+
+					if(!ValidateEmail(email)) {
+						$(".error-message.email").css("display", "block");
+						$(".error-message.email").html("Invalid Email!");
+						return false;
+					}else{
+						$(".error-message.email").css('display','none');
+					}
+					
+				}
+				
+				//checkWebsite();
+				var values = website.split('.').filter(function(v){return v!==''});
+				if(website == '' || values.length <= 1){
+					$(".error-message.website").css("display", "block");  
+					$(".error-message.website").html("Enter Website!");
+					return false;
+				}
+				else{
+					$(".error-message.website").css('display','none');
+				}
+				
+				if(saddress == ''){
+					$(".error-message.saddress").css("display", "block");  
+					$(".error-message.saddress").html("Enter Street Address!");
+					return false;
+				}else{
+						$(".error-message.saddress").css('display','none');
+				}
+				
+				if(city == ''){
+					$(".error-message.city").css("display", "block"); 
+					$(".error-message.city").html("Enter City!");
+					return false;
+				}else{
+					$(".error-message.city").css('display','none');					
+				}
+				
+				//validateState();
+				//var state = $("#state").val();
+				var statelength = $("#state").val().length;
+				if(state == '' || statelength != 2 || !isNaN(state)){
+					$(".error-message.state").css("display", "block");  
+					$(".error-message.state").html("Enter State!");
+					return false;
+				}else{
+					$(".error-message.state").css('display','none');					
+				}
+				//validateZipcode();
+				
+				
+				//if((zip == '') || (ziplength != 5) || isNaN(zip)){
+				if((zip == '') || (ziplength > 10)){
+					$(".error-message.zip").css("display", "block");  
+					$(".error-message.zip").html("Enter Valid Zip!");
+					return false;
+				}else{
+					$(".error-message.zip").css('display','none');
+				}
+				
+				if(custom_Company == ''){
+					$(".error-message.custom_Company").css("display", "block");					
+					$(".error-message.custom_Company").html("Enter Phone Number!");
+					return false;
+				}else{
+					$(".error-message.custom_Company").css('display','none');
+				}
+				if(business_type == ''){
+					$(".error-message.business_type").css("display", "block");  
+					$(".error-message.business_type").html("Select Industry type!");
+					return false;
+				}else{
+					$(".error-message.business_type").css('display','none');					
+				}
+				
+				if(custom_Password == ''){
+					$(".error-message.custom_Password").css("display", "block");  
+					$(".error-message.custom_Password").html("Enter Password!");
+					return false;
+				}
+				//checkPasswordMatch();
+				
+				if(length < 8){
+					$(".error-message.custom_Password").css("display", "block");
+					$(".error-message.custom_Password").html("Password must be at least 8 digits!");
+					return false;
+				}else{
+					$(".error-message.custom_Password").css('display','none');
+				}
+				
+				if (!$("#privacypolicy").prop("checked")){
+					$(".error-message.privacypolicy").css("display", "block");  
+					$(".error-message.privacypolicy").html("Please agree to privacy policy!");
+					return false;
+				}else{
+					$(".error-message.privacypolicy").css('display','none');
+				}
+				return true;
+				
+			}
+			
+			function ValidateEmail(email) {
+				var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+				return expr.test(email);
+			}
+			
+			/*function validateState(){
+				var state = $("#state").val();
+				var statelength = $("#state").val().length;
+				if(state == '' || statelength != 2 || !isNaN(state)){
+					$(".error-message.state").css("display", "block");  
+					$(".error-message.state").html("Enter State!");
+					return false;
+				}else{
+					$(".error-message.state").css('display','none');					
+				}
+			}
+			
+			
+			function checkPasswordMatch() {
+				var password = $("#custom_Password").val();
+				var length = $(this).val().length;
+				
+				if(length < 8){
+					$(".error-message.custom_Password").css("display", "block");
+					$(".error-message.custom_Password").html("Password must be at least 8 digits!");
+					return false;
+				}else{
+					$(".error-message.custom_Password").css('display','none');
+				}
+			}
+			
+			function emailValidation(){
+				var email = $("#email").val();
+				if(email == ''){
+					$(".error-message.email").css("display", "block"); 
+					$(".error-message.email").html("Enter Business Email!");
+					return false;
+					
+				}else if(email != ''){
+
+					if(!ValidateEmail(email)) {
+						$(".error-message.email").css("display", "block");
+						$(".error-message.email").html("Invalid Email!");
+						return false;
+					}else{
+						$(".error-message.email").css('display','none');
+					}
+					
+				}
+			}
+			
+			function checkCName(){
+				var cname = $("#cname").val();
+				var values = cname.split(' ').filter(function(v){return v!==''});
+				if(cname == '' || values.length <= 1){
+					$(".error-message.cname").css("display", "block");  
+					$(".error-message.cname").html("Enter Contact Name!");
+					return false;
+				}else{
+					$(".error-message.cname").css('display','none');
+				}
+			}
+			function checkWebsite(){
+				var website = $("#website").val();
+				var values = website.split('.').filter(function(v){return v!==''});
+				if(website == '' || values.length <= 1){
+					$(".error-message.website").css("display", "block");  
+					$(".error-message.website").html("Enter Website!");
+					return false;
+				}else{
+					$(".error-message.website").css('display','none');
+				}
+			}
+			
+			function validateZipcode(){
+				var zip = $("#zip").val();
+				var ziplength = $("#zip").val().length;
+				if((zip == '') || (ziplength != 5) || isNaN(zip)){
+					$(".error-message.zip").css("display", "block");  
+					$(".error-message.zip").html("Enter Valid Zip!");
+					return false;
+				}else{
+					$(".error-message.zip").css('display','none');
+				}
+				
+			}*/
+}
+			
+			function validateStep2() {
+				
+				var card_number = $("#card-number").val();
+				var stripe_expiration = $("#stripe-expiration").val();
+				var card_cvc = $("#card-cvc").val();
+				
+				if(card_number == '' || stripe_expiration == '' || card_cvc == ''){
+					$(".error-message.stripe_error").css("display", "block"); 
+					$(".error-message.stripe_error").html("All Field Required!");
+					return false;
+				}else{
+					$(".error-message.stripe_error").css('display','none');
+				}
+				if (!$("#termsconditions").prop("checked")){
+					$(".error-message.termsconditions").css("display", "block");
+					$(".error-message.termsconditions").html("Please agree to terms and conditions!");
+					return false;
+				}else{
+					$(".error-message.termsconditions").css('display','none');
+				}
+				return true;
+			}
+			
+			

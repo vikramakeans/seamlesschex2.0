@@ -1,0 +1,253 @@
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+
+
+  <div class="well">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Bank Auth
+      </h1>
+      <ol class="breadcrumb">
+        <li class="active">payauth</li>
+      </ol>
+	</section>
+
+    <!-- Main content -->
+    <section class="content">
+      
+        <div class="row">
+			<div class="col-xs-12">
+			  <div class="box">
+				<div class="box-header">
+				  <h3 class="box-title"></h3>
+				 </div>
+				 <form role="form" class="ng-pristine ng-valid">
+				 
+					<div class="box-body enter-Check">
+                    	<div class="form-group col-sm-6 col-md-6">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-user"></i>
+									<label for="inputName3">Name:</label>
+									<input type="button" id="inputName3" ng-click="buttonCheckedName()" />
+									<!--<a href="#"><i class="fa fa-user"></i>
+									<label>Name:</label></a>-->
+								</div>
+                                <div class="input-group-addon">
+									<i class="fa fa-phone"></i>
+									<label for="inputPhone3">Phone:</label>
+									<input type="button" id="inputPhone3" ng-click="buttonunCheckedPhone()" />
+									<!--<a href="#"><i class="fa fa-phone"></i>
+									<label>Phone:</label></a>-->
+								</div>
+								
+								<input type="text" placeholder="{{placeholder}}" class="form-control">
+							</div>
+								<!-- /.input group -->
+						</div>
+                       
+						<div class="form-group col-sm-6 col-md-6">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-envelope"></i>
+									<label for="inputEmail3">Email:</label>
+									<input type="button" id="inputEmail3" ng-click="buttonCheckedEmail()" />
+									<!--<a href="#"><i class="fa fa-envelope"></i>
+									<label>Email:</label></a>-->
+								</div>
+                                <div class="input-group-addon">
+									<i class="fa fa-keyboard-o"></i>
+									<label for="inputAddress3">Address:</label>
+									<input type="button" id="inputAddress3" ng-click="buttonunCheckedAddress()" />
+									<!--<a href="#"><i class="fa  fa-keyboard-o"></i>
+									<label>Address:</label></a>-->
+								</div>
+								
+								<input type="email" placeholder="{{placeholderemail}}" class="form-control">
+							</div>
+								<!-- /.input group -->
+						</div>
+						
+                        <div class="form-group col-sm-6 col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+									<i class="fa fa-building"></i>
+									<label for="inputCity3">City:</label>
+									<input type="button" id="inputCity3" ng-click="buttonCheckedCity()" />
+                                    <!--<a href="#"><i class="fa fa-building"></i>
+                                    <label>City:</label></a>-->
+                                </div>
+                                <div class="input-group-addon">
+									<i class="fa fa-globe"></i>
+									<label for="inputState3">State:</label>
+									<input type="button" id="inputState3" ng-click="buttonunCheckedState()" />
+                                    <!--<a href="#"><i class="fa fa-globe"></i>
+                                    <label>State:</label></a>-->
+                                </div>
+                                <div class="input-group-addon">
+									<i class="fa fa-key"></i>
+									<label for="inputPin3">Pin:</label>
+									<input type="button" id="inputPin3" ng-click="buttonunCheckedPin()" />
+                                    <!--<a href="#"><i class="fa fa-key"></i>
+                                    <label>Pin:</label></a>-->
+                                </div>
+                                
+                                <input type="text" placeholder="{{placeholdercity}}" class="form-control">
+                            </div>
+                         </div>
+										<!-- /.input group -->
+                        <div class="col-sm-6 col-md-6">
+							<div class="row">
+								<div class="form-group col-sm-6 col-md-6">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-ticket"></i>
+											<label>Check:</label>
+										</div>
+										
+										<input type="text" placeholder="Check Number" class="form-control">
+									</div>
+								 </div>
+								 <div class="form-group col-sm-6 col-md-6">
+									 <div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa  fa-dollar"></i>
+											<label>Amount:</label>
+										</div>
+										
+										<input type="text" placeholder="Amount" class="form-control">
+									</div>
+								 </div>
+										<!-- /.input group -->
+							</div>
+						</div>
+                        <div class="form-group col-sm-6 col-md-6">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-institution"></i>
+									<label>Company Name:</label>
+								</div>
+								
+								<select class="form-control">
+                                    <option value="Company Name">Company Name</option>
+                                    <option value="option 2">option 2</option>
+                                    <option value="option 3">option 3</option>
+                                    <option value="option 4">option 4</option>
+                                    <option value="option 5">option 5</option>
+                              	</select>
+							</div>
+								<!-- /.input group -->
+						</div>
+                        <div class="form-group col-sm-6 col-md-6">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-male"></i>
+									<label for="inputPay13">Pay to the Order of 1:</label>
+									<input type="button" id="inputPay13" ng-click="buttonCheckedPay()" />
+									<!--<a href="#"><i class="fa fa-male"></i>
+									<label>Pay to the Order of 1:</label></a>-->
+								</div>
+                                <div class="input-group-addon">
+									<i class="fa fa-male"></i>
+									<label for="inputPay23">Pay to the Order of 2:</label>
+									<input type="button" id="inputPay23" ng-click="buttonunCheckedPay()" />
+									<!--<a href="#"><i class="fa fa-male"></i>
+									<label>Pay to the Order of 2:</label></a>-->
+								</div>
+								
+								<input type="text" placeholder="{{placeholderpay}}" class="form-control">
+							</div>
+								<!-- /.input group -->
+						</div>
+                       
+                        <div class="col-sm-12 col-md-12">
+							<div class="row">
+								<div class="form-group col-sm-4 col-md-4">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-ticket"></i>
+											<label>Routing:</label>
+										</div>
+										
+										<input type="text" placeholder="Routing#" class="form-control">
+									</div>
+                                    		<!-- /.input group -->
+								 </div>
+								 <div class="form-group col-sm-4 col-md-4">
+									 <div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa  fa-dollar"></i>
+											<label>Checking Amount:</label>
+										</div>
+										
+										<input type="text" placeholder="Checking Amount #" class="form-control">
+									</div>
+								 </div>
+										<!-- /.input group -->
+                                 <div class="form-group col-sm-4 col-md-4">
+									 <div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa  fa-dollar"></i>
+											<label>Confirm Amount:</label>
+										</div>
+										
+										<input type="text" placeholder="Confirm Amount#" class="form-control">
+									</div>
+								 </div>
+										<!-- /.input group -->
+							</div>
+						</div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="checkbox col-sm-6 col-md-6">
+                              <label>
+                                <input type="checkbox"> Recurring Payments
+                              </label>
+                            </div>
+                            <div style="border-top: 0 none;" class="box-footer col-sm-6 col-md-6">
+                            	<button class="btn btn-primary pull-right" type="submit">Save This Check</button>
+                            </div>
+                        </div>
+                            
+					</div>
+                    </form>
+                    <div class="check-wrapper text-center">
+                    	<div class="inner-check-wrapper center-block">
+                            	<div class="CompanyNameDiv">
+                                    <input type="text" class="companyname" disabled="disabled" value="">
+                                    <input type="hidden" name="" disabled="disabled" value="1133" id="company">
+								</div>
+                                <div class="MemoNameDiv">
+                                    <input type="text" class="memo-name" disabled="disabled" value="">
+								</div>
+                                <div class="CheckNumberDiv">
+                                    <input type="text" class="check-number" placeholder="Check Number" disabled="disabled" value="">
+								</div>
+                                <div class="CheckAmountDiv">
+                                    <input type="text" class="check-amount" disabled="disabled" value="">
+								</div>
+                                <div class="RoutingDiv">
+                                    <input type="text" class="check-routing" placeholder="Routing #" disabled="disabled" value="">
+								</div>
+                                <div class="CheckingAccountDiv">
+                                    <input type="text" class="checking-account" placeholder="Checking Account #" disabled="disabled" value="">
+								</div>
+                                <div class="ConfirmAccountDiv">
+                                    <input type="text" class="confirm-account" placeholder="Confirm Account #" disabled="disabled" value="">
+								</div>
+                        </div>
+                    </div>
+			  </div>
+			  <!-- /.box -->
+			</div>
+		  </div>
+        <!-- /.box-body -->
+    </section>
+    
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

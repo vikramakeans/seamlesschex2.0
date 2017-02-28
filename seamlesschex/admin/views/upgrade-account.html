@@ -1,0 +1,184 @@
+<div class="form-cover">
+	<div class="inner-form-cover">
+    	<form class="twostep-form" >
+        	<div class="form-body">
+            	<div class="form-inner-body" ng-switch on="selection">
+					
+                	<div  style="display:none;">
+					<p class="alert alert-danger" ng-if="register.registerSuccess"><strong>Success:</strong> {{register.registerSuccessText}}</p>
+					<p class="alert alert-danger" ng-if="register.registerError"><strong>Error:</strong> {{register.registerErrorText}}</p>
+                    	<div class="form-page">
+                        	<div class="form-field">
+                            	<div class="input-cover">
+                            		<input class="sc-input" placeholder="Business Name" type="text" ng-model="register.user.name">
+                                    <div class="error-msg">Enter Business Name!</div>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                            	<div class="input-cover">
+                            	<input class="sc-input" ng-model="register.user.cname" placeholder="Contact Name (first and last name)" type="text">
+                                 <div class="error-msg">Enter Contact Name!</div>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                            	<div class="input-cover">
+                            	<input class="sc-input" ng-model="register.user.email" placeholder="Business Email (This Will Be Your Username)" type="email">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <div class="error-msg">Enter Business Email!</div>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                            	<div class="input-cover">
+                            	<input class="sc-input" ng-model="register.user.website" placeholder="Website" type="text">
+                                <div class="error-msg">Enter Website!</div>
+                                </div>
+                            </div>
+                            
+                             <div class="address-field">
+                             	<div class="street-address form-field">
+                                	<div class="input-cover">
+                            		<input class="sc-input" ng-model="register.user.saddress" placeholder="Street Address" type="text">
+                                    <div class="error-msg">Enter Street Address!</div>
+                                    </div>
+                                </div>
+                                <div class="city form-field">
+                                	<div class="input-cover">
+                                	<input class="sc-input" ng-model="register.user.city" placeholder="City" type="text">
+                                    <div class="error-msg">Enter City!</div>
+                                    </div>
+                                </div>
+                                <div class="state form-field">
+                                	<div class="input-cover">
+                                	<input class="sc-input" ng-model="register.user.state" placeholder="State" type="text">
+                                    <div class="error-msg">Enter State!</div>
+                                    </div>
+                                </div>
+                                <div class="zip form-field">
+                                	<div class="input-cover">
+                                	<input class="sc-input" ng-model="register.user.zip" placeholder="Zip" type="text">
+                                    <div class="error-msg">Enter Valid Zip!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                            	<div class="input-cover">
+                            	<phonenumber-directive placeholder="myPrompt" model="register.user.phone" ></phonenumber-directive>
+                                <div class="error-msg">Enter Phone Number!</div>
+                                </div>
+                            </div>
+                            <div class="form-field select-field">
+                            	<div class="input-cover">
+                           		<select class="sc-select" ng-model="register.user.business_type">
+                            		<option value="">Industry Type</option>
+                                    <option value="Auto">Auto</option>
+                                    <option value="Collections">Collections</option>
+                                    <option value="Computer Support">Computer Support</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Insurance">Insurance</option>
+                                    <option value="Legal">Legal</option>
+                                    <option value="Manufacturing / Supplier">Manufacturing / Supplier</option>
+                                    <option value="Medical">Medical</option>
+                                    <option value="Moving / Transportation">Moving / Transportation</option>
+                                    <option value="Professional Services">Professional Services</option>
+                                    <option value="Real Estate">Real Estate</option>
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <div class="error-msg">Select Industry type!</div>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                            	<div class="input-cover">
+                            	<input class="sc-input" ng-model="register.user.password" placeholder="Password must be at least 8 digits" type="password">
+                                <div class="error-msg">Enter Password!</div>
+                                </div>
+                            </div>
+                            <div class="form-field check-field">
+                            	<div class="error-msg">Please agree to privacy policy!</div>
+                            	<span>
+								 <md-checkbox ng-model="register.user.privacypolicy" aria-label="Privacy Policy" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" role="checkbox" class="ng-valid md-checked ng-not-empty ng-dirty ng-valid-parse ng-touched " tabindex="0" aria-checked="true" aria-invalid="false" style="" >
+                                    By clicking button, I agree to 
+                                </span>
+                                <a href="https://seamlesschex.com/privacy-policy" target="_blank">Seamless Chex, Privacy Policy</a>
+								</md-checkbox>
+                            </div>
+                            <div class="form-field">
+                            	<div class="submit-button">
+                                	<button class="signup-btn" type="button" ng-click="incrementStep()"><span>Sign Up Now</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Step two  -->
+                    <div  ng-switch-when="Activate Free Trial Now">
+						<p class="alert alert-danger" ng-if="register.registerSuccess"><strong>Success:</strong> {{register.registerSuccessText}}</p>
+						<p class="alert alert-danger" ng-if="register.registerError"><strong>Error:</strong> {{register.registerErrorText}}</p>
+                    	<div class="form-page">
+						<input type="hidden" ng-model="register.user.user_token" > 
+						<input type="hidden" ng-model="register.user.amount" ng-value="{{register.user.amount}}" id="planAmount" class=""> 
+                        	 <div class="form-field">
+                             	<div class="label_cover">
+                                	<div class="lavel-header form-field">
+                                        <span class="label-name">Plan</span>
+                                        <span class="sub_label">select one</span>
+                                    </div>
+                                    <div class="checkbox-field form-field">
+										<md-radio-group ng-model="register.user.plan" ng-change="setAmount(register.user.plan)">
+											<div class="form-group" ng-repeat="plan in plan_list_show">
+											  <md-radio-button value="{{plan.plan}}" class="md-primary" >{{plan.opt}}</md-radio-button>
+											 </div>
+										</md-radio-group>
+									</div>
+                                    
+                                    <div class="payby-link">
+                                    	<span class="condition">*</span><span class="payby-content">Includes <a href="https://seamlesschex.com/checkout/9dEDIvIZRz0ldCPkQiY6b01342izz82suHW/0/0/1/test" target="_blank">Pay By Check</a> Link Function</span>
+                                    </div>
+                                </div>	
+                                <div class="stripe-payment-cover">
+                            		<div class="form-group credit-card col-xs-12 col-sm-12 col-md-12" ng-model="register.user" validate-card>
+										 <input type="text" class="form-control" ng-model="register.user.number"  placeholder="Card Number" ng-change="checkEmpty(register.user)" format-card/>
+										 <div id="card-images" class="card-images {{register.user.type}}"></div>
+									</div>
+                                    <div class="form-field date-validation">
+                                    	<label>
+                                    	<span class="expiry-label">Expiry</span>
+										<input class="sc-input" type="text" ng-model="register.user.expiration" ui-mask="99/99"  ui-mask-placeholder="MM/YY" ui-mask-placeholder-char="_"/>
+										<i class="fa fa-calendar"></i>
+                                        </label>
+                                	</div>
+                                    <div class="form-field cvc">
+                                		<input class="sc-input" ng-model="register.user.cvc" placeholder="CVC" type="text" maxlength="4">
+                                        <i class="fa fa-lock" aria-hidden="true"></i>
+                                	</div>
+                                    <div class="secured-div">
+                                    	<i class="fa fa-lock" aria-hidden="true"></i><span class="secured-green"> 128-bit SSL Secured</span>
+                                    </div>	
+                            	</div>
+                                <div class="form-field check-field llc-tos">
+                                    <span>
+                                    
+                                    <md-checkbox ng-model="register.user.agree" aria-label="I agree" ng-init="" ng-true-value="'yes'" ng-false-value="'no'" role="checkbox" class="ng-valid md-checked ng-not-empty ng-dirty ng-valid-parse ng-touched " tabindex="0" aria-checked="true" aria-invalid="false" style="">
+                                        By clicking button, I agree to  
+                                    </span>
+                                    <a href="https://seamlesschex.com/privacy-policy" target="_blank">Seamless Chex, LLC TOS Policy</a>
+                                    <div class="descriptions">
+                                    	<span>**Your card will be billed after 3 checks or 14 days.  To cancel, simply send us a note through our Contact Page and we'll cancel your account ASAP!</span>
+                                    </div>
+									</md-checkbox>
+                                </div>
+                                <div class="form-field btn-field">
+                                	<div class="error-msg">All Field Required!</div>
+                                    <div class="submit-button">
+                                        <button class="freetrial-btn" ng-disabled="isDisabled" ng-model="isDisabled" type="submit" ng-click="register.register()"><span>Activate Free Trial Now</span></button>
+                                    </div>
+                                </div>
+                                
+                             </div>
+                        </div>
+                    </div>
+                    <!-- end -->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

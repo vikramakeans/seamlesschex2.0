@@ -1,0 +1,213 @@
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+<!-- Header Start-->		
+<div ng-include="'views/common/header.html'"></div>
+<!-- Header End-->
+
+<!-- Left Sidebar Start-->		
+<div ng-include="'views/common/sidebar-left.html'"></div>
+<!-- Left Sidebar End-->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1 class="page-heading">
+        Transactions
+      </h1>
+      
+	  <ol class="breadcrumb">
+        <li class="active">Transactions</li>
+      </ol>
+	</section>
+
+    <!-- Main content -->
+    <section class="content">
+		<div class="row">
+			<div class="col-lg-3 col-xs-6">
+			  <!-- small box -->
+			  <div class="small-box bg-light-blue">
+				<div class="inner">
+				  <h3 ng-if="totalRow">{{totalRow}}</h3>
+				   <h3 ng-if="totalRow == null">{{0}}</h3>
+				  <p>Total checks</p>
+				</div>
+			  </div>
+			</div>
+			<div class="col-lg-3 col-xs-6">
+			  <!-- small box -->
+			  <div class="small-box bg-light-blue">
+				<div class="inner">
+				  <h3 ng-if="totalAmount">${{totalAmount}}</h3>
+				  <h3 ng-if="totalAmount == null">${{0}}</h3>
+				  <p>Total amount</p>
+				</div>
+			  </div>
+			</div>
+		</div>
+        <div class="row">
+			<div class="col-xs-12">
+			<flash-message></flash-message>
+			  <div class="box box-primary">
+			  	<div ng-show="loader.loading" class="btn btn-success">Downloading...
+			        <i class="fa fa-spinner fa-spin"></i>
+			        </div>
+				<div class="box-header">
+				  <h3 class="box-title">Transactions</h3>
+
+				  <div class="box-tools">
+					<div class="input-group input-group-sm" style="width: 150px;">
+						<input type="text" ng-model="searchText.$" class="form-control pull-right" placeholder="Search">
+					  
+					</div>
+				  </div>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body table-responsive no-padding">
+                	
+                    <form role="form" class="ng-pristine ng-valid">
+                         <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                            <div class="input-group  pull-right Search_Check">
+                                <button class="btn btn-primary margin" ng-click="deleteCheck($event)">Delete Selected</button>                  
+                                <button class="btn btn-primary"  ng-click="printCheckOnPaper($event)">Print Selected on Check Paper</button>    
+                                <button class="btn btn-primary margin"  ng-click="printCheckOnPlainPaper($event)">Print selected on Plain Paper</button>  
+                                <button class="btn btn-primary"  ng-click="sendEmail()">Send email</button>
+                            </div>
+                         </div>
+                    </form>
+                    <!--<div class="box-body">
+                    	<label class="input-group">Tips: Clicking the "Print Selected" button will print all checks with a check mark next to it</label>
+                        <label class="input-group"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Clicking the printer icon will only print the check in that row</label>
+                    </div>-->
+					<div style="visibility: hidden">
+					  <div class="md-dialog-container" id="myStaticDialog">
+						<md-dialog>
+						  This is a pre-rendered dialog.
+						</md-dialog>
+					  </div>
+					</div>
+				  <!--==={{check_company_admin}}<===>{{check_company_user}}===={{check_from_date}}==={{check_to_date}}==={{check_month}}-->
+				  <table class="table table-hover table-striped th-color">
+					<tr>
+					  <th width="5">
+						<md-checkbox type='checkbox'  ng-click="selectAllCheck()" ng-model="selectAll"></md-checkbox>  
+					 </th>
+					  <th>
+						<a href="javascript:void(0);" ng-click="sortBy('date')">Date
+						  <span class="sortorder" ng-show="propertyName === 'date'" ng-class="{reverse: reverse}"></span>
+						</a>
+					  </th>
+					  <th>
+						<a href="javascript:void(0);" ng-click="sortBy('name')">Name
+						  <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+						</a>
+					  </th>
+					  <th>
+						<a href="javascript:void(0);" ng-click="sortBy('memo')">Memo
+						  <span class="sortorder" ng-show="propertyName === ''" ng-class="{reverse: reverse}"></span>
+						</a>
+					  </th>
+					  <th>
+						<a href="javascript:void(0);" ng-click="sortBy('check_amount')">Amount
+						  <span class="sortorder" ng-show="propertyName === 'check_amount'" ng-class="{reverse: reverse}"></span>
+						</a>
+					  </th>
+					  <th width="90">
+						<a href="javascript:void(0);" ng-click="sortBy('status')">Status
+						  <span class="sortorder" ng-show="propertyName === 'status'" ng-class="{reverse: reverse}"></span>
+						</a>
+					  </th>
+					  <th>
+						<a href="javascript:void(0);" ng-click="sortBy('recurring')">Recurring
+						  <span class="sortorder" ng-show="propertyName === 'recurring'" ng-class="{reverse: reverse}"></span>
+						</a>
+					  </th>
+					  <th>
+						<a href="javascript:void(0);" ng-click="sortBy('verification')">Verification
+						  <span class="sortorder" ng-show="propertyName === 'verification'" ng-class="{reverse: reverse}"></span>
+						</a>
+					  </th>
+					  <th  width="140">Action</th>
+					  
+					</tr>
+					<tr ng-animate="'animate'" ng-repeat="check in checklist| filter:searchText | orderBy:propertyName:reverse"">
+					   <td>
+						   <md-checkbox  type='checkbox' ng-model="check.multiple" ng-click="unChecked();"  ></md-checkbox>
+					  </td>
+					  <td>{{check.date}}</td>
+					  <td>{{check.name}}</td>
+					  <td>{{check.memo}}</td>
+					  <td>{{check.check_amount}}</td>
+					  <td>5/0</td>
+					  <td></td>
+
+					  <td ng-if="check.response_code">{{check.response_code}} <md-tooltip  md-direction="top">
+					  		{{check.giact_response_code_des}}
+					  </md-tooltip> &nbsp;</td>
+					  <td ng-if="check.response_code==null">{{check.response_code}} <md-tooltip  md-direction="top">
+					  		No description !!	
+					  </md-tooltip> &nbsp;</td>
+
+					  <td>
+
+						<a ui-sref="edit-check({ check_token: check.check_token })"><i class="fa fa-edit"><md-tooltip md-direction="top">Edit</md-tooltip></i></a> &nbsp;
+						<a href="#" ng-click="printCheck($event,check.check_token)"><i class="fa fa-print"><md-tooltip md-direction="top">Print</md-tooltip></i></a> &nbsp;
+					<!-- 	<a ui-sref="print-check({ mc_token: check.mc_token })" ><i class="fa fa-print"></i></a> &nbsp; -->
+						<a ui-sref="test-print-check"><i class="fa fa-mobile"><md-tooltip md-direction="top">Print With Image</md-tooltip></i></a> &nbsp;
+						<a ui-sref="duplicate-check({ check_token: check.check_token })" ><i class="fa fa-copy"><md-tooltip md-direction="top">Duplicate</md-tooltip></i></a> &nbsp;
+						<a ui-sref="s" ><i class="fa fa-cubes"><md-tooltip md-direction="top">Not Deposited</md-tooltip></i></a> &nbsp;
+
+						<a ng-if="check.is_fundconfirmation == 'NULL'" ui-sref="s">
+						<img src="images/Circle_Grey.png"><md-tooltip md-direction="top">Funds confirmation was not enabled or was not eligible on this item.</md-tooltip></i>
+						</a> 
+						<a ng-if="check.is_fundconfirmation == '0'" ui-sref="s">
+						<img src="images/Circle_Grey.png"><md-tooltip md-direction="top">Funds confirmation was not enabled or was not eligible on this item.</md-tooltip></i>
+						</a> 
+						<a ng-if="check.is_fundconfirmation == 'NonParticipatingBank'" ui-sref="s">
+						<img src="images/Circle_Yellow.png"><md-tooltip md-direction="top">This item's bank is not a participant in the network.</md-tooltip></i>
+						</a>
+						<a ng-if="check.is_fundconfirmation == 'InvalidAccountNumber'" ui-sref="s">
+						<img src="images/Circle_Red.png"><md-tooltip md-direction="top">This item has an invalid account number.</md-tooltip></i>
+						</a> 
+						<a ng-if="check.is_fundconfirmation == 'AccountClosed'" ui-sref="s">
+						<img src="images/Circle_Red.png"><md-tooltip md-direction="top">The bank is reporting this account as closed.</md-tooltip></i>
+						</a>
+						<a ng-if="check.is_fundconfirmation == 'InsufficientFunds'" ui-sref="s">
+						<img src="images/Circle_Red.png"><md-tooltip md-direction="top">There are not sufficient funds available for this item's amount.</md-tooltip></i>
+						</a> 
+						<a ng-if="check.is_fundconfirmation == 'SufficientFunds'" ui-sref="s">
+						<img src="images/Circle_Red.png"><md-tooltip md-direction="top">There are sufficient funds available for this item's amount.</md-tooltip></i>
+						</a> 
+						<a ng-if="check.check_type == '3'" ui-sref="s">
+						<img src="images/Circle_Blue.png"><md-tooltip md-direction="top">Bank Auth Confirmed.</md-tooltip></i>
+						</a> 
+						<!-- <a ng-if="check.is_fundconfirmation == 'NULL'" ui-sref="s">
+						<i class="fa fa-circle-o"><md-tooltip md-direction="top">Funds confirmation was not enabled or was not eligible on this item.</md-tooltip></i>
+						</a> &nbsp; -->
+					  </td>
+					  </tr>
+					  <tr ng-if="message">
+						<td colspan="5">{{message}}</td>
+					 </tr>
+				  </table>
+                   <span us-spinner=""></span>
+				</div>
+				<!-- /.box-body -->
+			  </div>
+			  <!-- /.box -->
+			</div>
+		  </div>
+        <!-- /.box-body -->
+        
+        <!-- /.box-footer-->
+     
+
+    </section>
+    	<!-- Plaid link api integration -->
+	<script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
+    
+	<!-- Footer Start-->
+	<div class="main-footer" ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

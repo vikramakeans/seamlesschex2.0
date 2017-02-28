@@ -1,0 +1,83 @@
+<!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+
+  <div class="well">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Check Processed
+      </h1>
+	</section>
+
+    <!-- Main content -->
+    <section class="content">
+      
+        <div class="row">
+			<div class="">
+			  <div class="box Processed_Check">
+				<div class="">
+				  <h3 class="box-title text-center"> This Check has already been processed. The funds have been credited to the recipient.</h3>
+                  <h3 class="box-title text-center"> This check was deposited online by the receiver. </h3>
+				 </div>
+				
+                    <div class="check-wrapper text-center">
+                    	<div class="inner-check-wrapper center-block">
+								<div class="EnterCheckDateDiv">
+                                    <input type="text" class="Check_Date" disabled="disabled" value="12/20/2016">
+								</div>
+                            	<div class="UserNameDiv">
+                                    <input type="text" class="User_Name" disabled="disabled" value="Evan Albert">
+								</div>
+								<div class="UserEmailDiv">
+                                    <input type="text" class="User_Email" disabled="disabled" value="testmail@test.com">
+								</div>
+								
+								
+								<div class="CompanyNameDiv">
+                                    <input type="text" class="companyname" disabled="disabled" value="Bob Cohen">
+								</div>
+                               
+								<div class="DescriptionDiv">
+                                    <input type="text" class="Description" disabled="disabled" value="Digital Check">
+								</div>
+								<div class="amountInWords">
+								Pay Exactly one Dollars And Cents ///////
+								</div>
+                                
+                                <div class="UserSignatureDiv">
+                                    <input type="text" class="User_Signature" disabled="disabled" value="{{sendcheck.name}}">
+								</div>
+                                <div class="CheckNumberDiv">
+                                    <input type="text" class="check-number" disabled="disabled" value="1002">
+                                </div>
+                                <div class="CheckAmountDiv">
+                                    <input type="text" class="check-amount" disabled="disabled" value="1.00">
+								</div>
+                                <div class="RoutingDiv">
+                                    <input type="text" class="check-routing" placeholder="Routing Number #" disabled="disabled" value="021000322">
+								</div>
+                                <div class="CheckingAccountDiv">
+                                    <input type="text" class="checking-account" placeholder="Account Number #" disabled="disabled" value="********6127">
+								</div>
+                                <div class="ConfirmAccountDiv">
+                                    <input type="text" class="confirm-account" placeholder="Confirm Account Number #" disabled="disabled" value="1002">
+								</div>
+                        </div>
+                        <div class="processedWaterMark">PROCESSED</div>
+                    </div>
+			  </div>
+			  <!-- /.box -->
+			</div>
+		  </div>
+        <!-- /.box-body -->
+    </section>
+    
+	<!-- Footer Start-->
+	<div ng-include="'views/common/footer.html'"></div>
+	<!-- Footer End-->
+    <!-- /.content -->
+  </div>
+  <!-- /.well -->
+
+

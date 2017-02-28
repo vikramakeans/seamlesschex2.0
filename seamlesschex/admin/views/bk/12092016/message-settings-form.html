@@ -1,0 +1,99 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>
+			Settings
+		</h1>
+		<ol class="breadcrumb">
+			<li class="active" ng-if="action === 'addMessageSettings'">message-settings-add</li>
+			<li class="active" ng-if="action === 'editMessageSettings'">message-settings-edit</li>
+		</ol>
+	</section>
+
+	<!-- Main content -->
+	<section class="content">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="">
+					<div class="nav-tabs-custom" ng-controller="MultiStepFormController as companyAdmin">
+						<ul class="nav nav-tabs">
+							<li class="active" ng-class="">
+							  <a href="javascript:void(0)" >Message Settings</a>
+							</li>
+						</ul>
+						<div class="col-md-12 tab-content">
+							
+							<div class="box box-info">
+								<div ng-switch on="selection">
+									<!-- First -->
+									<div ng-switch-when="Company Details" >
+										<form class="form-horizontal">
+											<div class="box-header">
+												 <p class="alert alert-success" ng-if="messagesettings.messagesettingsSuccess"><strong>Success:</strong> {{messagesettings.messagesettingsSuccessText}}</p>
+												 <p class="alert alert-danger" ng-if="messagesettings.messagesettingsError"><strong>Error:</strong> {{messagesettings.messagesettingsErrorText}}</p>
+											</div>
+											<div class="box-body">
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserField Label3">Field Label</label>
+													<div class="col-sm-4">
+														<input id="inputuserField Label3" class="form-control" type="text" placeholder="Field Label" ng-model="messagesettings.field_label"  />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserField Name3">Field Name</label>
+													<div class="col-sm-4">
+														<input id="inputuserField Name3" class="form-control" type="text" placeholder="Field Name" ng-model="messagesettings.field_name"   />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserForm Name3">Form Name</label>
+													<div class="col-sm-4">
+														<input id="inputuserForm Name3" class="form-control" type="text" placeholder="Form Name" ng-model="messagesettings.form_name"   />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserMessage3">Message</label>
+													<div class="col-sm-4">
+														<input id="inputuserMessage3" class="form-control" type="text" placeholder="Message" ng-model="messagesettings.message"   />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserEmail3">Form Type</label>
+													<div class="col-sm-4">
+														<input id="" class="form-control" type="text" placeholder="Message" ng-model="messagesettings.type"   />	
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-2 control-label" for="inputuserPosition3">Position</label>
+													<div class="col-sm-4">
+														<input id="inputuserPosition3" class="form-control" type="text" placeholder="Position" ng-model="messagesettings.position"   />
+													</div>
+												</div>
+												
+											</div>
+											<div class="box-footer">
+												<div class="row">
+													<div class="col-sm-offset-2 col-sm-6">
+														<button class="btn btn-default" type="submit">Cancel</button>
+														<button class="btn btn-info" type="submit" ng-click="updateMessageSettings()" ng-if="action === 'editMessageSettings'">Update</button>
+														<button class="btn btn-info" type="submit" ng-click="addMessageSettings()" ng-if="action === 'addMessageSettings'">Save</button>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="alert alert-danger" ng-if="user.error">
+								<strong>There was an error: </strong> {{user.error.error}}
+								<br>Please go back and login again
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+

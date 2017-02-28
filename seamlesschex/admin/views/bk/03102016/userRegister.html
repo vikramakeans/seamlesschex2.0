@@ -1,0 +1,137 @@
+<div class="container" style="margin-top: 80px">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Register </h3>
+        </div>
+		<!--<p class="alert alert-danger"  ng-show="registerError && form.userRegister.name.$error.required">This field is required</p>-->
+		<p class="alert alert-danger" ng-if="register.registerSuccess"><strong>Success:</strong> {{register.registerSuccessText}}</p>
+		<p class="alert alert-danger" ng-if="register.registerError"><strong>Error:</strong> {{register.registerErrorText}}</p>
+        <div class="panel-body">
+          <form name="form.userRegister">
+		  <span class="payment-errors"></span>
+
+            <div class="form-group">
+              <input class="form-control" type="text" placeholder="Business Name" ng-model="register.user.name" name="name"  />
+            </div>
+			<div class="form-group">
+              <input class="form-control" type="text" placeholder="Contact Name" ng-model="register.user.cname">
+            </div>
+			<div class="form-group">
+              <input class="form-control" type="text" placeholder="Street Address" ng-model="register.user.saddress">
+            </div>
+			<div class="form-group">
+				<label>
+				  <input type="text" class="form-control" placeholder="City" ng-model="register.user.city">
+				</label>
+				<label>
+					<input type="text"  class="form-control" placeholder="State" ng-model="register.user.state">
+				</label>
+				<label>
+					<input type="text" class="form-control" placeholder="Zip" ng-model="register.user.zip">
+				</label>
+			</div>
+			<div class="form-group">
+				<select ng-model="register.user.business_type" class="form-control">
+					<option value="">Industry Type</option>
+					<option value="Auto">Auto</option>
+					<option value="Collections">Collections</option>
+					<option value="Computer Support">Computer Support</option>
+					<option value="Finance">Finance</option>
+					<option value="Insurance">Insurance</option>
+					<option value="Legal">Legal</option>
+					<option value="Manufacturing / Supplier">Manufacturing / Supplier</option>
+					<option value="Medical">Medical</option>
+					<option value="Moving / Transportation">Moving / Transportation</option>
+					<option value="Professional Services">Professional Services</option>
+					<option value="Real Estate">Real Estate</option>
+					<option value="Web Development">Web Development</option>
+					<option value="Other">Other</option>
+				</select>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="email" placeholder="Business Email" ng-model="register.user.email">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="password" placeholder="Password must be at least 8 digits" ng-model="register.user.password">
+            </div>
+			<div class="form-group" >
+              <!--<input class="form-control" type="text" placeholder="Phone Number* Required to Activate Account " ng-model="register.user.phone">-->
+              <!--<input class="form-control" ui-mask="999-999-9999"
+                placeholder="xxx-xxx-xxxx"
+                ng-model="register.user.phone">-->
+				<phonenumber-directive placeholder="myPrompt" model='register.user.phone' ></phonenumber-directive>
+            </div>
+			
+			<div class="form-group">
+				<input type="hidden" ng-model="register.user.amount" ng-value="{{register.user.amount}}" id="planAmount" class=""> 
+				<label>
+					<input type="radio" ng-model="register.user.plan" value="SeamlessChex Starter Plan" ng-change="setAmount('24.99')"> 
+				</label>
+				<label>
+					Starter Plan (10 Checks) - $24.99/mo
+				</label>
+				
+			</div>
+			<div class="form-group">
+				<label>
+					<input type="radio" ng-model="register.user.plan" value="SeamlessChex Pro Plan" ng-change="setAmount('49.99')" > 
+				</label>
+				<label>
+					Pro Plan (25 Checks) - $49.99/mo
+				</label>
+				
+			</div>
+			<div class="form-group">
+				<label>
+					<input type="radio" ng-model="register.user.plan" value="SeamlessChex Premium Plan" ng-change="setAmount('99.99')">
+				</label>
+				<label>
+					Premium Plan (75 Checks) - $99.99/mo
+				</label>
+			</div>
+			
+			<div class="form-group credit-card" ng-model="register.user" validate-card>
+			  <!--<input type="text" size="20" class="form-control" placeholder="Card Number" ng-model="register.user.number">-->
+			 <input type="text" class="form-control" ng-model="register.user.number"  placeholder="Card Number" ng-change="checkEmpty(register.user)" format-card/>
+			 <div id="card-images" class="card-images {{register.user.type}}"></div>
+				<!--Card Type: {{register.user.type}}<br/>
+				Valid: {{register.user.valid}}-->
+			</div>
+
+			<div class="form-group">
+				<label>
+				  <!--<span>Expiration (MM/YY)</span>-->
+				  <input type="text" size="2" maxlength="2" class="form-control" placeholder="MM" ng-model="register.user.exp_month">
+				</label>
+				<!--<label>
+					<span> / </span>
+				</label>-->
+				<label>
+					<input type="text" size="4"  class="form-control" placeholder="YYYY" ng-model="register.user.exp_year" maxlength="4">
+				</label>
+				<label>
+					<input type="text" size="4"  class="form-control" placeholder="CVC" ng-model="register.user.cvc" maxlength="10">
+				</label>
+			</div>
+			<div class="form-group">
+				<label>
+					<input type="checkbox" ng-model="register.user.agree" name="userAgree" />
+				</label>
+				<label>
+					<span class="part1"> By clicking button, I agree to</span> <span class="part2"><a style="color: rgb(62, 156, 227); font-family: helvetica, arial, 'sans serif'; font-style: normal; line-height: 22px; text-align: start; background-color: rgb(242, 243, 244);" target="_blank" href="https://seamlesschex.com/terms-and-conditions/">Seamless Chex, LLC TOS Policy</a></span> <span class="part3">**Your card will be billed after 3 checks or 14 days.  To cancel, simply send us a note through our Contact Page and we'll cancel your account ASAP!</span>
+				</label>
+			</div>
+            <div class="form-group">
+              <button class="btn btn-block btn-primary" ng-disabled="isDisabled" ng-model="isDisabled" ng-click="register.register()">Sign Up Now</button>
+            </div>
+         </form>
+       </div>
+       
+     </div>
+   </div>
+ </div>
+</div>
+
+
